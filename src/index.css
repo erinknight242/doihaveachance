@@ -15,23 +15,36 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.app {
+h3 {
+  margin: 0.75em 0;
+}
+
+.flex-container {
   display: flex;
+  background-color: rgb(212, 241, 247);
+  padding: 0 12px;
+}
+
+.info {
+  padding: 24px;
 }
 
 .hidden {
   display: none;
 }
 
-.game-container, .leaderboard {
+.games, .leaderboard {
   padding: 12px;
   padding-left: 24px;
-  background-color: rgb(212, 241, 247);
   flex: 1;
 }
 
-h3, .link {
-  padding-left: 24px;
+.games {
+  max-width: 50%;
+}
+
+.game-container {
+  padding-bottom: 24px;
 }
 
 .link {
@@ -41,9 +54,12 @@ h3, .link {
 }
 
 .leaderboard {
-  position: fixed;
-  left: 50%;
-  background-color: #d4f1f780;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  left: 0;
+  max-width: 150px;
+  align-self: flex-start;
 }
 
 .standings-row {
@@ -65,7 +81,7 @@ h3, .link {
   align-items: center;
   background: #fff;
   margin: 2px;
-  width: 150px;
+  width: 140px;
   border: 3px solid #888;
   cursor: pointer;
 }
@@ -84,4 +100,7 @@ h3, .link {
 }
 .game-container .team.completed {
   cursor: default;
+}
+.game-container .team.no-picks {
+  background: #dadadc;
 }

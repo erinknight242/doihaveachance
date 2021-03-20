@@ -1,4 +1,4 @@
-import { brackets, calculateEspnScore } from './bracketdata.js';
+import { brackets, calculateEspnScore, teamWasPicked } from './bracketdata.js';
 
 const sampleData = {
     round64winner1: { team: 1, played: true },
@@ -271,6 +271,33 @@ describe('Score Calculation', () => {
             championshipwinner63: 56
         };
         expect(calculateEspnScore(sampleData, bracket)).toBe(0);
+    });
+});
+
+describe('Helper functions', () => {
+    it('Checks if anyone picked that team for that game', () => {
+        const demoBrackets = [
+            {
+                name: 'Test1',
+                game1: 1,
+                game2: 2,
+                game3: 3
+            }, {
+                name: 'Test2',
+                game1: 4,
+                game2: 5,
+                game3: 6
+            }, {
+                name: 'Test3',
+                game1: 1,
+                game2: 5,
+                game3: 7
+            }
+        ];
+        expect(teamWasPicked(1, 'game1', demoBrackets)).toBeTrue();
+        expect(teamWasPicked(3, 'game1', demoBrackets)).toBeFalse();
+        expect(teamWasPicked(7, 'game3', demoBrackets)).toBeTrue();
+        expect(teamWasPicked(4, 'game2', demoBrackets)).toBeFalse();
     });
 })
 

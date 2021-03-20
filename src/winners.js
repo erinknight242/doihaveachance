@@ -64,6 +64,7 @@ const VCU = 62;
 const Oregon = 63;
 
 window.winners = {
+    currentRound: 1,
     round64winner1: { team: Florida, played: true},
     round64winner2: { team: Arkansas, played: true},
     round64winner3: { team: Illinois, played: true},

@@ -1,7 +1,9 @@
 import React from 'react';
+import { teamWasPicked } from './bracketdata.js';
 
 function BracketGame({team1, team2, pickWinner, winner, name, className}) {
   const teamColor = (clickedTeam) => winner.team === clickedTeam ? (winner.played ? 'green' : 'orange') : 'grey';
+  const bgColor = (clickedTeam) => teamWasPicked(clickedTeam, name) ? '' : ' no-picks';
   let id1 = -1;
   let id2 = -1;
   let seed1 = ' ';
@@ -19,13 +21,14 @@ function BracketGame({team1, team2, pickWinner, winner, name, className}) {
     name2 = team2.name;
   }
 
+
   return(
-    <div className={`game-container ${className}`}>
-      <div className={`team ${teamColor(id1)} ${winner.played ? 'completed' : ''}`} onClick={pickWinner.bind(this, id1, name)}>
+    <div className={`game-container${className !== '' ? ' ' + className : '' }`}>
+      <div className={`team ${teamColor(id1)}${winner.played ? ' completed' : ''}${bgColor(id1)}`} onClick={pickWinner.bind(this, id1, name)}>
         <span className="seed">{seed1}</span>
         <span className="team-name">{name1}</span>
       </div>
-      <div className={`team ${teamColor(id2)} ${winner.played ? 'completed' : ''}`} onClick={pickWinner.bind(this, id2, name)}>
+      <div className={`team ${teamColor(id2)}${winner.played ? ' completed' : ''}${bgColor(id2)}`} onClick={pickWinner.bind(this, id2, name)}>
         <span className="seed">{seed2}</span>
         <span className="team-name">{name2}</span>
       </div>

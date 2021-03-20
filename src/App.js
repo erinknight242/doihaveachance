@@ -8,6 +8,7 @@ export default class App extends Component {
     this.state = {
         linkText: 'Show completed games',
         showAll: false,
+        currentRound: window.winners.currentRound,
         round64winner1: window.winners.round64winner1,
         round64winner2: window.winners.round64winner2,
         round64winner3: window.winners.round64winner3,
@@ -159,17 +160,21 @@ export default class App extends Component {
   }
 
   render() {
-    const { showAll,linkText,teams,round64winner1,round64winner2,round64winner3,round64winner4,round64winner5,round64winner6,round64winner7,round64winner8,round64winner9,round64winner10,round64winner11,round64winner12,round64winner13,round64winner14,round64winner15,round64winner16,round64winner17,round64winner18,round64winner19,round64winner20,round64winner21,round64winner22,round64winner23,round64winner24,round64winner25,round64winner26,round64winner27,round64winner28,round64winner29,round64winner30,round64winner31,round64winner32,round32winner33,round32winner34,round32winner35,round32winner36,round32winner37,round32winner38,round32winner39,round32winner40,round32winner41,round32winner42,round32winner43,round32winner44,round32winner45,round32winner46,round32winner47,round32winner48,sweet16winner49,sweet16winner50,sweet16winner51,sweet16winner52,sweet16winner53,sweet16winner54,sweet16winner55,sweet16winner56,elite8winner57,elite8winner58,elite8winner59,elite8winner60,final4winner61,final4winner62,championshipwinner63} = this.state;
+    const { currentRound,showAll,linkText,teams,round64winner1,round64winner2,round64winner3,round64winner4,round64winner5,round64winner6,round64winner7,round64winner8,round64winner9,round64winner10,round64winner11,round64winner12,round64winner13,round64winner14,round64winner15,round64winner16,round64winner17,round64winner18,round64winner19,round64winner20,round64winner21,round64winner22,round64winner23,round64winner24,round64winner25,round64winner26,round64winner27,round64winner28,round64winner29,round64winner30,round64winner31,round64winner32,round32winner33,round32winner34,round32winner35,round32winner36,round32winner37,round32winner38,round32winner39,round32winner40,round32winner41,round32winner42,round32winner43,round32winner44,round32winner45,round32winner46,round32winner47,round32winner48,sweet16winner49,sweet16winner50,sweet16winner51,sweet16winner52,sweet16winner53,sweet16winner54,sweet16winner55,sweet16winner56,elite8winner57,elite8winner58,elite8winner59,elite8winner60,final4winner61,final4winner62,championshipwinner63} = this.state;
 
     function className(game) {
-      return showAll || game.played === false ? ' ' : 'hidden';
+      return showAll || game.played === false ? '' : 'hidden';
     }
 
     return (
-      <div className="app">
-        <div className="game-container">
-        <div className="link" onClick={this.toggleGames}>{linkText}</div>
-          <h3>Round of 64</h3>
+      <div className="app container">
+        <div className="info">
+          Greyed out selections were not picked by anyone. Games that have already been completed are collapsed at the top and can be expanded to view but can't be changed; but all future games can be clicked to see what would happen to the scores if those teams won. Clicking a prediction will also populate the subsequent round below as if that team won. Click a prediction again to clear it, or to completely reset the scores to the current values, just refresh the page. There is not a (free) API for me to pull in the winners automatically, but I will be manually updating the completed games throughout the day.
+        </div>
+        <div className="flex-container">
+        <div className="games">
+          <div className="link" onClick={this.toggleGames}>{linkText}</div>
+          <h3 className={currentRound > 1 ? 'hidden' : ''}>Round of 64</h3>
           <BracketGame className={className(round64winner1)} team1={teams[0]} team2={teams[1]} pickWinner={this.pickWinner} winner={round64winner1} name='round64winner1'/>
           <BracketGame className={className(round64winner2)} team1={teams[2]} team2={teams[3]} pickWinner={this.pickWinner} winner={round64winner2} name='round64winner2'/>
           <BracketGame className={className(round64winner3)} team1={teams[4]} team2={teams[5]} pickWinner={this.pickWinner} winner={round64winner3} name='round64winner3'/>
@@ -203,48 +208,49 @@ export default class App extends Component {
           <BracketGame className={className(round64winner31)} team1={teams[60]} team2={teams[61]} pickWinner={this.pickWinner} winner={round64winner31} name='round64winner31'/>
           <BracketGame className={className(round64winner32)} team1={teams[62]} team2={teams[63]} pickWinner={this.pickWinner} winner={round64winner32} name='round64winner32'/>
           
-          <h3>Round of 32</h3>
+          <h3 className={currentRound > 2 ? 'hidden' : ''}>Round of 32</h3>
           <BracketGame className={className(round32winner33)} team1={teams[round64winner3.team]} team2={teams[round64winner7.team]} pickWinner = {this.pickWinner} winner={round32winner33} name='round32winner33'/>
-          <BracketGame team1={teams[round64winner8.team]} team2={teams[round64winner9.team]} pickWinner = {this.pickWinner} winner={round32winner34} name='round32winner34'/>
-          <BracketGame team1={teams[round64winner14.team]} team2={teams[round64winner15.team]} pickWinner = {this.pickWinner} winner={round32winner35} name='round32winner35'/>
-          <BracketGame team1={teams[round64winner11.team]} team2={teams[round64winner13.team]} pickWinner = {this.pickWinner} winner={round32winner36} name='round32winner36'/>
-          <BracketGame team1={teams[round64winner6.team]} team2={teams[round64winner10.team]} pickWinner = {this.pickWinner} winner={round32winner37} name='round32winner37'/>
-          <BracketGame team1={teams[round64winner12.team]} team2={teams[round64winner16.team]} pickWinner = {this.pickWinner} winner={round32winner38} name='round32winner38'/>
-          <BracketGame team1={teams[round64winner2.team]} team2={teams[round64winner4.team]} pickWinner = {this.pickWinner} winner={round32winner39} name='round32winner39'/>
-          <BracketGame team1={teams[round64winner1.team]} team2={teams[round64winner5.team]} pickWinner = {this.pickWinner} winner={round32winner40} name='round32winner40'/>
-          <BracketGame team1={teams[round64winner28.team]} team2={teams[round64winner29.team]} pickWinner = {this.pickWinner} winner={round32winner41} name='round32winner41'/>
-          <BracketGame team1={teams[round64winner22.team]} team2={teams[round64winner27.team]} pickWinner = {this.pickWinner} winner={round32winner42} name='round32winner42'/>
-          <BracketGame team1={teams[round64winner19.team]} team2={teams[round64winner24.team]} pickWinner = {this.pickWinner} winner={round32winner43} name='round32winner43'/>
-          <BracketGame team1={teams[round64winner25.team]} team2={teams[round64winner32.team]} pickWinner = {this.pickWinner} winner={round32winner44} name='round32winner44'/>
-          <BracketGame team1={teams[round64winner20.team]} team2={teams[round64winner21.team]} pickWinner = {this.pickWinner} winner={round32winner45} name='round32winner45'/>
-          <BracketGame team1={teams[round64winner17.team]} team2={teams[round64winner18.team]} pickWinner = {this.pickWinner} winner={round32winner46} name='round32winner46'/>
-          <BracketGame team1={teams[round64winner30.team]} team2={teams[round64winner31.team]} pickWinner = {this.pickWinner} winner={round32winner47} name='round32winner47'/>
-          <BracketGame team1={teams[round64winner23.team]} team2={teams[round64winner26.team]} pickWinner = {this.pickWinner} winner={round32winner48} name='round32winner48'/>
+          <BracketGame className={className(round32winner34)} team1={teams[round64winner8.team]} team2={teams[round64winner9.team]} pickWinner = {this.pickWinner} winner={round32winner34} name='round32winner34'/>
+          <BracketGame className={className(round32winner35)} team1={teams[round64winner14.team]} team2={teams[round64winner15.team]} pickWinner = {this.pickWinner} winner={round32winner35} name='round32winner35'/>
+          <BracketGame className={className(round32winner36)} team1={teams[round64winner11.team]} team2={teams[round64winner13.team]} pickWinner = {this.pickWinner} winner={round32winner36} name='round32winner36'/>
+          <BracketGame className={className(round32winner37)} team1={teams[round64winner6.team]} team2={teams[round64winner10.team]} pickWinner = {this.pickWinner} winner={round32winner37} name='round32winner37'/>
+          <BracketGame className={className(round32winner38)} team1={teams[round64winner12.team]} team2={teams[round64winner16.team]} pickWinner = {this.pickWinner} winner={round32winner38} name='round32winner38'/>
+          <BracketGame className={className(round32winner39)} team1={teams[round64winner2.team]} team2={teams[round64winner4.team]} pickWinner = {this.pickWinner} winner={round32winner39} name='round32winner39'/>
+          <BracketGame className={className(round32winner40)} team1={teams[round64winner1.team]} team2={teams[round64winner5.team]} pickWinner = {this.pickWinner} winner={round32winner40} name='round32winner40'/>
+          <BracketGame className={className(round32winner41)} team1={teams[round64winner28.team]} team2={teams[round64winner29.team]} pickWinner = {this.pickWinner} winner={round32winner41} name='round32winner41'/>
+          <BracketGame className={className(round32winner42)} team1={teams[round64winner22.team]} team2={teams[round64winner27.team]} pickWinner = {this.pickWinner} winner={round32winner42} name='round32winner42'/>
+          <BracketGame className={className(round32winner43)} team1={teams[round64winner19.team]} team2={teams[round64winner24.team]} pickWinner = {this.pickWinner} winner={round32winner43} name='round32winner43'/>
+          <BracketGame className={className(round32winner44)} team1={teams[round64winner25.team]} team2={teams[round64winner32.team]} pickWinner = {this.pickWinner} winner={round32winner44} name='round32winner44'/>
+          <BracketGame className={className(round32winner45)} team1={teams[round64winner20.team]} team2={teams[round64winner21.team]} pickWinner = {this.pickWinner} winner={round32winner45} name='round32winner45'/>
+          <BracketGame className={className(round32winner46)} team1={teams[round64winner17.team]} team2={teams[round64winner18.team]} pickWinner = {this.pickWinner} winner={round32winner46} name='round32winner46'/>
+          <BracketGame className={className(round32winner47)} team1={teams[round64winner30.team]} team2={teams[round64winner31.team]} pickWinner = {this.pickWinner} winner={round32winner47} name='round32winner47'/>
+          <BracketGame className={className(round32winner48)} team1={teams[round64winner23.team]} team2={teams[round64winner26.team]} pickWinner = {this.pickWinner} winner={round32winner48} name='round32winner48'/>
         
-          <h3>Sweet 16</h3>
-          <BracketGame team1={teams[round32winner37.team]} team2={teams[round32winner38.team]} pickWinner = {this.pickWinner} winner={sweet16winner49} name='sweet16winner49'/>
-          <BracketGame team1={teams[round32winner39.team]} team2={teams[round32winner40.team]} pickWinner = {this.pickWinner} winner={sweet16winner50} name='sweet16winner50'/>
-          <BracketGame team1={teams[round32winner33.team]} team2={teams[round32winner34.team]} pickWinner = {this.pickWinner} winner={sweet16winner51} name='sweet16winner51'/>
-          <BracketGame team1={teams[round32winner35.team]} team2={teams[round32winner36.team]} pickWinner = {this.pickWinner} winner={sweet16winner52} name='sweet16winner52'/>
-          <BracketGame team1={teams[round32winner41.team]} team2={teams[round32winner42.team]} pickWinner = {this.pickWinner} winner={sweet16winner53} name='sweet16winner53'/>
-          <BracketGame team1={teams[round32winner43.team]} team2={teams[round32winner44.team]} pickWinner = {this.pickWinner} winner={sweet16winner54} name='sweet16winner54'/>
-          <BracketGame team1={teams[round32winner45.team]} team2={teams[round32winner46.team]} pickWinner = {this.pickWinner} winner={sweet16winner55} name='sweet16winner55'/>
-          <BracketGame team1={teams[round32winner47.team]} team2={teams[round32winner48.team]} pickWinner = {this.pickWinner} winner={sweet16winner56} name='sweet16winner56'/>
+          <h3 className={currentRound > 3 ? 'hidden' : ''}>Sweet 16</h3>
+          <BracketGame className={className(sweet16winner49)} team1={teams[round32winner37.team]} team2={teams[round32winner38.team]} pickWinner = {this.pickWinner} winner={sweet16winner49} name='sweet16winner49'/>
+          <BracketGame className={className(sweet16winner50)} team1={teams[round32winner39.team]} team2={teams[round32winner40.team]} pickWinner = {this.pickWinner} winner={sweet16winner50} name='sweet16winner50'/>
+          <BracketGame className={className(sweet16winner51)} team1={teams[round32winner33.team]} team2={teams[round32winner34.team]} pickWinner = {this.pickWinner} winner={sweet16winner51} name='sweet16winner51'/>
+          <BracketGame className={className(sweet16winner52)} team1={teams[round32winner35.team]} team2={teams[round32winner36.team]} pickWinner = {this.pickWinner} winner={sweet16winner52} name='sweet16winner52'/>
+          <BracketGame className={className(sweet16winner53)} team1={teams[round32winner41.team]} team2={teams[round32winner42.team]} pickWinner = {this.pickWinner} winner={sweet16winner53} name='sweet16winner53'/>
+          <BracketGame className={className(sweet16winner54)} team1={teams[round32winner43.team]} team2={teams[round32winner44.team]} pickWinner = {this.pickWinner} winner={sweet16winner54} name='sweet16winner54'/>
+          <BracketGame className={className(sweet16winner55)} team1={teams[round32winner45.team]} team2={teams[round32winner46.team]} pickWinner = {this.pickWinner} winner={sweet16winner55} name='sweet16winner55'/>
+          <BracketGame className={className(sweet16winner56)} team1={teams[round32winner47.team]} team2={teams[round32winner48.team]} pickWinner = {this.pickWinner} winner={sweet16winner56} name='sweet16winner56'/>
 
-          <h3>Elite 8</h3>
-          <BracketGame team1={teams[sweet16winner49.team]} team2={teams[sweet16winner50.team]} pickWinner = {this.pickWinner} winner={elite8winner57} name='elite8winner57'/>
-          <BracketGame team1={teams[sweet16winner51.team]} team2={teams[sweet16winner52.team]} pickWinner = {this.pickWinner} winner={elite8winner58} name='elite8winner58'/>
-          <BracketGame team1={teams[sweet16winner55.team]} team2={teams[sweet16winner56.team]} pickWinner = {this.pickWinner} winner={elite8winner59} name='elite8winner59'/>
-          <BracketGame team1={teams[sweet16winner53.team]} team2={teams[sweet16winner54.team]} pickWinner = {this.pickWinner} winner={elite8winner60} name='elite8winner60'/>
+          <h3 className={currentRound > 4 ? 'hidden' : ''}>Elite 8</h3>
+          <BracketGame className={className(elite8winner57)} team1={teams[sweet16winner49.team]} team2={teams[sweet16winner50.team]} pickWinner = {this.pickWinner} winner={elite8winner57} name='elite8winner57'/>
+          <BracketGame className={className(elite8winner58)} team1={teams[sweet16winner51.team]} team2={teams[sweet16winner52.team]} pickWinner = {this.pickWinner} winner={elite8winner58} name='elite8winner58'/>
+          <BracketGame className={className(elite8winner59)} team1={teams[sweet16winner55.team]} team2={teams[sweet16winner56.team]} pickWinner = {this.pickWinner} winner={elite8winner59} name='elite8winner59'/>
+          <BracketGame className={className(elite8winner60)} team1={teams[sweet16winner53.team]} team2={teams[sweet16winner54.team]} pickWinner = {this.pickWinner} winner={elite8winner60} name='elite8winner60'/>
 
-          <h3>Final 4</h3>
-          <BracketGame team1={teams[elite8winner59.team]} team2={teams[elite8winner60.team]} pickWinner = {this.pickWinner} winner={final4winner61} name='final4winner61'/>
-          <BracketGame team1={teams[elite8winner57.team]} team2={teams[elite8winner58.team]} pickWinner = {this.pickWinner} winner={final4winner62} name='final4winner62'/>
+          <h3 className={currentRound > 5 ? 'hidden' : ''}>Final 4</h3>
+          <BracketGame className={className(final4winner61)} team1={teams[elite8winner59.team]} team2={teams[elite8winner60.team]} pickWinner = {this.pickWinner} winner={final4winner61} name='final4winner61'/>
+          <BracketGame className={className(final4winner62)} team1={teams[elite8winner57.team]} team2={teams[elite8winner58.team]} pickWinner = {this.pickWinner} winner={final4winner62} name='final4winner62'/>
         
           <h3>Championship</h3>
-          <BracketGame team1={teams[final4winner61.team]} team2={teams[final4winner62.team]} pickWinner = {this.pickWinner} winner={championshipwinner63} name='championshipwinner63'/>
+          <BracketGame className={className(championshipwinner63)} team1={teams[final4winner61.team]} team2={teams[final4winner62.team]} pickWinner = {this.pickWinner} winner={championshipwinner63} name='championshipwinner63'/>
         </div>
         <Leaderboard data={this.state} />
+        </div>
       </div>
     );
   }

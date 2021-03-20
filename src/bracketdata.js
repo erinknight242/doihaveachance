@@ -790,3 +790,14 @@ export const calculateEspnScore = (data, bracket) => {
     data.championshipwinner63.team === bracket.championshipwinner63 ? score+=320 : null;
     return score;
 };
+
+export const teamWasPicked = (team, game, bracketData = brackets) => {
+    let inUse = false;
+    for (let i = 0; i < bracketData.length; i++) {
+        if (bracketData[i][game] === team) {
+            inUse = true;
+            break;
+        }
+    }
+    return inUse;
+}
