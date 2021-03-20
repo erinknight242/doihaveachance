@@ -1,0 +1,87 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Roboto, sans-serif;
+  color: #342E37;
+  background: #9AD7E0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app {
+  display: flex;
+}
+
+.hidden {
+  display: none;
+}
+
+.game-container, .leaderboard {
+  padding: 12px;
+  padding-left: 24px;
+  background-color: rgb(212, 241, 247);
+  flex: 1;
+}
+
+h3, .link {
+  padding-left: 24px;
+}
+
+.link {
+  text-decoration: underline;
+  color: #004482;
+  cursor: pointer;
+}
+
+.leaderboard {
+  position: fixed;
+  left: 50%;
+  background-color: #d4f1f780;
+}
+
+.standings-row {
+  display: flex;
+}
+
+.standings-row span:first-child {
+  flex: 1;
+}
+
+.standings-row span:nth-child(2) {
+  font-weight: bold;
+}
+
+.game-container .team {
+  border-radius: 8px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  margin: 2px;
+  width: 150px;
+  border: 3px solid #888;
+  cursor: pointer;
+}
+.game-container .team.green {
+  border: 3px solid #85D838;
+}
+.game-container .team.orange {
+  border: 3px solid #FA824C;
+}
+.game-container .team.blue {
+  border: 3px solid #004482;
+}
+.game-container .team .seed {
+  font-size: 0.8rem;
+  padding: 6px;
+}
+.game-container .team.completed {
+  cursor: default;
+}
