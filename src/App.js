@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import BracketGame from './BracketGame.js';
 import Leaderboard from './Leaderboard.js';
 import * as Team from './bracketdata.js';
-import winners from './winners.json';
-
+const winners = require('./winners.js');
 export default class App extends Component {
   constructor(props) {
     super(props);
