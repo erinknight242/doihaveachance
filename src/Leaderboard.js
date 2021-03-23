@@ -12,7 +12,6 @@ function Leaderboard({data}) {
         added = true;
     } else {
         for (let i = 0; i < orderedStandings.length; i++) {
-            console.log(name, score, orderedStandings[i].score);
             if (score >= orderedStandings[i].score) {
                 orderedStandings.splice(i, 0, { name, score });
                 added = true;

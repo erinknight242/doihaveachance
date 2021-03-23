@@ -169,12 +169,12 @@ export default class App extends Component {
     return (
       <div className="app container">
         <div className="info">
-          Greyed out selections were not picked by anyone. Games that have already been completed are collapsed at the top and can be expanded to view but can't be changed; but all future games can be clicked to see what would happen to the scores if those teams won. Clicking a prediction will also populate the subsequent round below as if that team won. Click a prediction again to clear it, or to completely reset the scores to the current values, just refresh the page. There is not a (free) API for me to pull in the winners automatically, but I will be manually updating the completed games throughout the day.
+          Greyed out selections were not picked by anyone; percentages indicate what percent of brackets entered in this pool picked that team for that game. Games that have already been completed are collapsed at the top and can be expanded to view but can't be changed; but all future games can be clicked to see what would happen to the scores if those teams won. Clicking a prediction will also populate the subsequent round below as if that team won. Click a prediction again to clear it, or to completely reset the scores to the current values, just refresh the page.
         </div>
         <div className="flex-container">
         <div className="games">
           <div className="link" onClick={this.toggleGames}>{linkText}</div>
-          <h3 className={currentRound > 1 ? 'hidden' : ''}>Round of 64</h3>
+          <h3 className={currentRound > 1 && !showAll ? 'hidden' : ''}>Round of 64</h3>
           <BracketGame className={className(round64winner1)} team1={teams[0]} team2={teams[1]} pickWinner={this.pickWinner} winner={round64winner1} name='round64winner1'/>
           <BracketGame className={className(round64winner2)} team1={teams[2]} team2={teams[3]} pickWinner={this.pickWinner} winner={round64winner2} name='round64winner2'/>
           <BracketGame className={className(round64winner3)} team1={teams[4]} team2={teams[5]} pickWinner={this.pickWinner} winner={round64winner3} name='round64winner3'/>

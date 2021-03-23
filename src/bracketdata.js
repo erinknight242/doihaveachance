@@ -801,3 +801,13 @@ export const teamWasPicked = (team, game, bracketData = brackets) => {
     }
     return inUse;
 }
+
+export const percentFor = (team, game, bracketData = brackets) => {
+    let countFor = 0;
+    for (let i = 0; i < bracketData.length; i++) {
+        if (team !== undefined && bracketData[i][game] === team.id) {
+            countFor++;
+        }
+    }
+    return Math.round(countFor * 100 / bracketData.length, 0);
+}
