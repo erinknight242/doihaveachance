@@ -1,4 +1,5 @@
 import { brackets, calculateEspnScore, teamWasPicked } from './bracketdata.js';
+import { convertEspnPool } from './importer.js';
 
 const sampleData = {
     round64winner1: { team: 1, played: true },
@@ -299,5 +300,11 @@ describe('Helper functions', () => {
         expect(teamWasPicked(7, 'game3', demoBrackets)).toBeTrue();
         expect(teamWasPicked(4, 'game2', demoBrackets)).toBeFalse();
     });
-})
+});
+
+describe('Generate test data', () => {
+    it('Generates data', () => {
+        console.log(convertEspnPool());
+    });
+});
 
