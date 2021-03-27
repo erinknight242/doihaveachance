@@ -175,3 +175,183 @@ function mapEspnToReact(espnId) {
         default: return null;
     }
 }
+
+/* To import a CBS Bracket (these have to be done individually instead of the whole pool at once), 
+open the bracket you want to import (something like 
+https://picks.cbssports.com/college-basketball/ncaa-tournament/bracket/pools/XXX====?entryId=YYY), 
+and open the developer tools. Refresh the page, and on the Network tab, filter to XHR requests. 
+Click the one that starts like "graphql?operationName=EntryDetailsQuery", click the Response tab,
+select all, and copy it. Paste it below replacing the example object, and then run yarn test. It
+will output your bracket object in the console. Copy it, and paste it in bracketdata.js in place
+of one of the brackets in the "brackets" array. Repeat for each bracket you want to add to the app.
+Run the tests one more time after pasting everything in to verify that it is formatted properly. */ 
+
+const cbsExample = {
+    data: {
+        entry: {
+            name: "TestBracket",
+            picks:[
+                { slotId:"jvqxiy3iovydumryga======", itemId:"krswc3j2giytemby" },
+                { slotId:"jvqxiy3iovydumryge======", itemId:"krswc3j2giytemrt" },
+                { slotId:"jvqxiy3iovydumrygi======", itemId:"krswc3j2giytcmzw" },
+                { slotId:"jvqxiy3iovydumzqgq======", itemId:"krswc3j2giytgmbq" }
+            ]
+        }
+    }
+};
+
+
+
+export const convertCbsBracket = (bracketJson = cbsExample) => {
+    const object = bracketJson; //JSON.parse(bracketJson);
+    let bracketObject = {};
+    bracketObject.name = object.data.entry.name;
+    for (let i = 0; i < object.data.entry.picks.length; i++) {
+        const winner = mapCbsTeamToReact(object.data.entry.picks[i].itemId);
+        const game = mapCbsGameToReact(object.data.entry.picks[i].slotId);
+        bracketObject[game] = winner;
+    }
+    return bracketObject;
+}
+
+function mapCbsTeamToReact(cbsItemId) {
+    const cbsId = cbsItemId.slice(11,16);
+    console.log(cbsId);
+    switch(cbsId) {
+        case 'timjv': return Data.Gonzaga;
+        case '?': return Data.NorfolkState;
+        case 'temby': return Data.Oklahoma;
+        case 'tembw': return Data.Missouri;
+        case 'tgmbv': return Data.Creighton;
+        case 'temrt': return Data.UCSantaBarbara;
+        case 'tcmzw': return Data.Virginia;
+        case 'tenzu': return Data.Ohio;
+        case 'tgnbs': return Data.USC;
+        case 'tgmbw': return Data.Drake;
+        case 'tembu': return Data.Kansas;
+        case '??': return Data.EasternWashington;
+        case 'tgmzy': return Data.Oregon;
+        case 'temzs': return Data.VCU;
+        case 'tcojs': return Data.Iowa;
+        case '???': return Data.GrandCanyon;
+        case 'tcojt': return Data.Michigan;
+        case '????': return Data.TexasSouthern;
+        case 'tgnjy': return Data.LSU;
+        case 'tcnbv': return Data.StBonaventure;
+        case 'tembs': return Data.Colorado;
+        case 'tcnrs': return Data.Georgetown;
+        case 'tcmzr': return Data.FloridaState;
+        case '?????': return Data.UNCGreensboro;
+        case 'timru': return Data.BYU;
+        case 'tgnbr': return Data.UCLA;
+        case 'temjq': return Data.Texas;
+        case '??????': return Data.AbelineChristian;
+        case 'tcnrr': return Data.UConn;
+        case 'tcmzt': return Data.Maryland;
+        case 'tgnjs': return Data.Alabama;
+        case '???????': return Data.Iona;
+        case 'tembr': return Data.Baylor;
+        case '????????': return Data.Hartford;
+        case 'tcmzu': return Data.NorthCarolina;
+        case 'tembq': return Data.Wisconsin;
+        case 'tcnzr': return Data.Villanova;
+        case 'tcobx': return Data.Winthrop;
+        case 'tgmbq': return Data.LoyolaChicago;
+        case 'temrr': return Data.NorthTexas;
+        case 'temjs': return Data.TexasTech;
+        case '?????????': return Data.UtahState;
+        case 'tgnjt': return Data.Arkansas;
+        case 'tgnbx': return Data.Colgate;
+        case 'tgnjv': return Data.Florida;
+        case 'tcnby': return Data.VirginiaTech;
+        case 'tcojx': return Data.OhioSt;
+        case '??????????': return Data.OralRoberts;
+        case 'tcojq': return Data.Illinois;
+        case '???????????': return Data.Drexel;
+        case 'tcojz': return Data.Purdue;
+        case 'tcmzs': return Data.GeorgiaTech;
+        case 'tgnrs': return Data.Tennessee;
+        case 'tgmzz': return Data.OregonState;
+        case 'tembz': return Data.OklahomaState;
+        case 'tcobu': return Data.Liberty;
+        case 'timzr': return Data.SanDiegoState;
+        case 'tcnzq': return Data.Syracuse;
+        case 'tcnzs': return Data.WestVirginia;
+        case '????????????': return Data.MoreheadState;
+        case 'tcmrz': return Data.Clemson;
+        case 'tcnrx': return Data.Rutgers;
+        case 'temzx': return Data.Houston;
+        case '?????????????': return Data.ClevelandState;
+        default: console.log(cbsId); return null;
+    }
+}
+
+function mapCbsGameToReact(cbsSlotId) {
+    const cbsId = cbsSlotId.slice(13,18);
+    switch (cbsId) {
+        case 'mzqge': return 'round64winner1';
+        case 'mzqga': return 'round64winner2';
+        case 'mzqgm': return 'round64winner3';
+        case 'mrzhe': return 'round64winner4';
+        case 'mzqgi': return 'round64winner5';
+        case 'mrzgu': return 'round64winner6';
+        case 'mzqgq': return 'round64winner7';
+        case 'mzqgu': return 'round64winner8';
+        case 'mzqgy': return 'round64winner9';
+        case 'mrzgy': return 'round64winner10';
+        case 'mzrga': return 'round64winner11';
+        case 'mrzha': return 'round64winner12';
+        case 'mzqhe': return 'round64winner13';
+        case 'mzqg4': return 'round64winner14';
+        case 'mzqha': return 'round64winner15';
+        case 'mrzg4': return 'round64winner16';
+        case 'mryhe': return 'round64winner17';
+        case 'mrzga': return 'round64winner18';
+        case 'mrygq': return 'round64winner19';
+        case 'mryha': return 'round64winner20';
+        case 'mryg4': return 'round64winner21';
+        case 'mryge': return 'round64winner22';
+        case 'mrzgq': return 'round64winner23';
+        case 'mrygm': return 'round64winner24';
+        case 'mrygy': return 'round64winner25';
+        case 'mrzgm': return 'round64winner26';
+        case 'mrygi': return 'round64winner27';
+        case 'mryga': return 'round64winner28';
+        case 'mrxhe': return 'round64winner29';
+        case 'mrzge': return 'round64winner30';
+        case 'mrzgi': return 'round64winner31';
+        case 'mrygu': return 'round64winner32';
+        case 'mzsgm': return 'round32winner33';
+        case 'mzsgq': return 'round32winner34';
+        case 'mzsgu': return 'round32winner35';
+        case 'mzsgy': return 'round32winner36';
+        case 'mzrhe': return 'round32winner37';
+        case 'mzsga': return 'round32winner38';
+        case 'mzsge': return 'round32winner39';
+        case 'mzsgi': return 'round32winner40';
+        case 'mzrge': return 'round32winner41';
+        case 'mzrgi': return 'round32winner42';
+        case 'mzrgm': return 'round32winner43';
+        case 'mzrgq': return 'round32winner44';
+        case 'mzrgu': return 'round32winner45';
+        case 'mzrgy': return 'round32winner46';
+        case 'mzrg4': return 'round32winner47';
+        case 'mzrha': return 'round32winner48';
+        case 'mztge': return 'sweet16winner49';
+        case 'mztgi': return 'sweet16winner50';
+        case 'mztgm': return 'sweet16winner51';
+        case 'mztgq': return 'sweet16winner52';
+        case 'mzsg4': return 'sweet16winner53';
+        case 'mzsha': return 'sweet16winner54';
+        case 'mzshe': return 'sweet16winner55';
+        case 'mztga': return 'sweet16winner56';
+        case 'mztg4': return 'elite8winner57';
+        case 'mztha': return 'elite8winner58';
+        case 'mztgy': return 'elite8winner59';
+        case 'mztgu': return 'elite8winner60';
+        case 'mzthe': return 'final4winner61';
+        case 'mzuga': return 'final4winner62';
+        case 'mzuge': return 'championshipwinner63';
+        default: console.log(cbsId); return null;
+    }
+}
