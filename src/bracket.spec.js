@@ -304,11 +304,11 @@ describe('Helper functions', () => {
  
 describe('Import bracket data', () => {
     it('Imports ESPN data', () => {
-        const object = {};
-        console.log(convertEspnPool(object));
+        const object = {/* Paste JSON here */};
+        console.log(convertEspnPool(/*object*/));
     });
     it('Imports CBS data', () => {
-        const object = {};
-        console.log(convertCbsBracket(object));
+        const object = {/* Paste JSON here */};
+        console.log(convertCbsBracket(/*object*/));
     });
 });

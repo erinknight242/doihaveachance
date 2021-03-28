@@ -216,7 +216,6 @@ export const convertCbsBracket = (bracketJson = cbsExample) => {
 
 function mapCbsTeamToReact(cbsItemId) {
     const cbsId = cbsItemId.slice(11,16);
-    console.log(cbsId);
     switch(cbsId) {
         case 'timjv': return Data.Gonzaga;
         case '?': return Data.NorfolkState;
@@ -229,29 +228,29 @@ function mapCbsTeamToReact(cbsItemId) {
         case 'tgnbs': return Data.USC;
         case 'tgmbw': return Data.Drake;
         case 'tembu': return Data.Kansas;
-        case '??': return Data.EasternWashington;
+        case 'tcnzt': return Data.EasternWashington;
         case 'tgmzy': return Data.Oregon;
         case 'temzs': return Data.VCU;
         case 'tcojs': return Data.Iowa;
-        case '???': return Data.GrandCanyon;
+        case '??': return Data.GrandCanyon;
         case 'tcojt': return Data.Michigan;
-        case '????': return Data.TexasSouthern;
+        case '???': return Data.TexasSouthern;
         case 'tgnjy': return Data.LSU;
         case 'tcnbv': return Data.StBonaventure;
         case 'tembs': return Data.Colorado;
         case 'tcnrs': return Data.Georgetown;
         case 'tcmzr': return Data.FloridaState;
-        case '?????': return Data.UNCGreensboro;
+        case 'tgnzs': return Data.UNCGreensboro;
         case 'timru': return Data.BYU;
         case 'tgnbr': return Data.UCLA;
         case 'temjq': return Data.Texas;
-        case '??????': return Data.AbelineChristian;
+        case 'daobv': return Data.AbelineChristian;
         case 'tcnrr': return Data.UConn;
         case 'tcmzt': return Data.Maryland;
         case 'tgnjs': return Data.Alabama;
-        case '???????': return Data.Iona;
+        case 'tenjw': return Data.Iona;
         case 'tembr': return Data.Baylor;
-        case '????????': return Data.Hartford;
+        case '????': return Data.Hartford;
         case 'tcmzu': return Data.NorthCarolina;
         case 'tembq': return Data.Wisconsin;
         case 'tcnzr': return Data.Villanova;
@@ -259,15 +258,15 @@ function mapCbsTeamToReact(cbsItemId) {
         case 'tgmbq': return Data.LoyolaChicago;
         case 'temrr': return Data.NorthTexas;
         case 'temjs': return Data.TexasTech;
-        case '?????????': return Data.UtahState;
+        case 'temru': return Data.UtahState;
         case 'tgnjt': return Data.Arkansas;
         case 'tgnbx': return Data.Colgate;
         case 'tgnjv': return Data.Florida;
         case 'tcnby': return Data.VirginiaTech;
         case 'tcojx': return Data.OhioSt;
-        case '??????????': return Data.OralRoberts;
+        case 'tenzz': return Data.OralRoberts;
         case 'tcojq': return Data.Illinois;
-        case '???????????': return Data.Drexel;
+        case '?????': return Data.Drexel;
         case 'tcojz': return Data.Purdue;
         case 'tcmzs': return Data.GeorgiaTech;
         case 'tgnrs': return Data.Tennessee;
@@ -277,12 +276,12 @@ function mapCbsTeamToReact(cbsItemId) {
         case 'timzr': return Data.SanDiegoState;
         case 'tcnzq': return Data.Syracuse;
         case 'tcnzs': return Data.WestVirginia;
-        case '????????????': return Data.MoreheadState;
+        case 'tgmrz': return Data.MoreheadState;
         case 'tcmrz': return Data.Clemson;
         case 'tcnrx': return Data.Rutgers;
         case 'temzx': return Data.Houston;
-        case '?????????????': return Data.ClevelandState;
-        default: console.log(cbsId); return null;
+        case 'teojx': return Data.ClevelandState;
+        default: return null;
     }
 }
 
@@ -352,6 +351,6 @@ function mapCbsGameToReact(cbsSlotId) {
         case 'mzthe': return 'final4winner61';
         case 'mzuga': return 'final4winner62';
         case 'mzuge': return 'championshipwinner63';
-        default: console.log(cbsId); return null;
+        default: return null;
     }
 }
