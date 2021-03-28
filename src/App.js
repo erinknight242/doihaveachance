@@ -1,3 +1,4 @@
+/* eslint-disable no-fallthrough */
 import React, { Component } from 'react';
 import BracketGame from './BracketGame.js';
 import Leaderboard from './Leaderboard.js';
@@ -142,12 +143,47 @@ export default class App extends Component {
   }
 
   pickWinner = (winnerId, game) => {
+    // a valid team (not played or TBD) was clicked, set them as the winner
     if (this.state[game].played === false && winnerId > -1) {
       if (this.state[game].team === winnerId) {
-        this.setState({ [game]: { team: null, played: false } });
+        this.resetThisAndFutureGames(true, game, winnerId, this.state[game].team);
       } else {
-        this.setState({ [game]: { team: winnerId, played: false } });
+        this.resetThisAndFutureGames(false, game, winnerId, this.state[game].team);
       }
+    }
+  }
+
+  resetThisAndFutureGames = (clearSelected, game, winnerId, previousWinner) => {
+    const startingGameNumber = game.slice(-2); // TODO: fix this to work with single digits
+    switch(startingGameNumber) {
+      case '49': this.updateIfMatch('sweet16winner49', winnerId, game, clearSelected, previousWinner);
+      case '50': this.updateIfMatch('sweet16winner50', winnerId, game, clearSelected, previousWinner);
+      case '51': this.updateIfMatch('sweet16winner51', winnerId, game, clearSelected, previousWinner);
+      case '52': this.updateIfMatch('sweet16winner52', winnerId, game, clearSelected, previousWinner);
+      case '53': this.updateIfMatch('sweet16winner53', winnerId, game, clearSelected, previousWinner);
+      case '54': this.updateIfMatch('sweet16winner54', winnerId, game, clearSelected, previousWinner);
+      case '55': this.updateIfMatch('sweet16winner55', winnerId, game, clearSelected, previousWinner);
+      case '56': this.updateIfMatch('sweet16winner56', winnerId, game, clearSelected, previousWinner);
+      case '57': this.updateIfMatch('elite8winner57', winnerId, game, clearSelected, previousWinner);
+      case '58': this.updateIfMatch('elite8winner58', winnerId, game, clearSelected, previousWinner);
+      case '59': this.updateIfMatch('elite8winner59', winnerId, game, clearSelected, previousWinner);
+      case '60': this.updateIfMatch('elite8winner60', winnerId, game, clearSelected, previousWinner);
+      case '61': this.updateIfMatch('final4winner61', winnerId, game, clearSelected, previousWinner);
+      case '62': this.updateIfMatch('final4winner62', winnerId, game, clearSelected, previousWinner);
+      case '63': this.updateIfMatch('championshipwinner63', winnerId, game, clearSelected, previousWinner);
+      default: 
+    }
+  }
+  
+  updateIfMatch = (gameName, id, currentGame, clearSelected, previousWinner) => {
+    const currentValue = this.state[gameName].team;
+    if (currentGame === gameName && !clearSelected) {
+      // clicked to select the opponent of the selected team for the current match
+      this.setState({ [gameName]: { team: id, played: false } });
+    }
+    if ((currentValue === id && clearSelected) || // clicked to de-select, and it found a match for the team clicked
+        (currentValue === previousWinner && currentGame !== gameName && !clearSelected)) { // or clicked the opponent on an earlier match
+      this.setState({ [gameName]: { team: null, played: false } });
     }
   }
 
