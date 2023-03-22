@@ -58,7 +58,7 @@ h3 {
   position: sticky;
   top: 0;
   left: 0;
-  max-width: 155px;
+  max-width: 250px;
   align-self: flex-start;
 }
 
@@ -104,6 +104,33 @@ h3 {
 }
 .game-container .team.no-picks {
   background: #dadadc;
+}
+
+.loading-mask {
+  display: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.loading.loading-mask {
+  background: #d4f1f766;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.possibilities {
+  margin-top: 1rem;
+  padding: 5px;
+  color: #ed143d;
+  background-color: #ed143d33;
 }
 
 @media (max-width: 400px) {

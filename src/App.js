@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import BracketGame from './BracketGame.js';
 import Leaderboard from './Leaderboard.js';
+import Loading from './Loading.js';
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -9,6 +10,7 @@ export default class App extends Component {
     this.state = {
         linkText: 'Show completed games',
         showAll: false,
+        isLoading: false,
         currentRound: window.winners.currentRound,
         round64winner1: window.winners.round64winner1,
         round64winner2: window.winners.round64winner2,
@@ -74,70 +76,70 @@ export default class App extends Component {
         final4winner62: window.winners.final4winner62,
         championshipwinner63: window.winners.championshipwinner63,
         teams: [
-            { id: 0, name: 'Virginia Tech', seed: '10'},
-            { id: 1, name: 'Florida', seed: '7'},
-            { id: 2, name: 'Colgate', seed: '14'},
-            { id: 3, name: 'Arkansas', seed: '3'},
-            { id: 4, name: 'Drexel', seed: '16'},
-            { id: 5, name: 'Illinois', seed: '1'},
-            { id: 6, name: 'Utah State', seed: '11'},
-            { id: 7, name: 'Texas Tech', seed: '6'},
-            { id: 8, name: 'Oral Roberts', seed: '15'},
-            { id: 9, name: 'Ohio St.', seed: '2'},
-            { id: 10, name: 'Hartford', seed: '16'},
-            { id: 11, name: 'Baylor', seed: '1'},
-            { id: 12, name: 'Georgia Tech', seed: '9'},
-            { id: 13, name: 'Loyola Chicago', seed: '8'},
-            { id: 14, name: 'Oregon State', seed: '12'},
-            { id: 15, name: 'Tennessee', seed: '5'},
-            { id: 16, name: 'Liberty', seed: '13'},
-            { id: 17, name: 'Oklahoma State', seed: '4'},
-            { id: 18, name: 'Wisconsin', seed: '9'},
-            { id: 19, name: 'North Carolina', seed: '8'},
-            { id: 20, name: 'Cleveland State', seed: '15'},
-            { id: 21, name: 'Houston', seed: '2'},
-            { id: 22, name: 'North Texas', seed: '13'},
-            { id: 23, name: 'Purdue', seed: '4'},
-            { id: 24, name: 'Rutgers', seed: '10'},
-            { id: 25, name: 'Clemson', seed: '7'},
-            { id: 26, name: 'Syracuse', seed: '11'},
-            { id: 27, name: 'San Diego State', seed: '6'},
-            { id: 28, name: 'Morehead State', seed: '14'},
-            { id: 29, name: 'West Virginia', seed: '3'},
-            { id: 30, name: 'Winthrop', seed: '12'},
-            { id: 31, name: 'Villanova', seed: '5'},
-            { id: 32, name: 'Georgetown', seed: '12'},
-            { id: 33, name: 'Colorado', seed: '5'},
-            { id: 34, name: 'UNC Greensboro', seed: '13'},
-            { id: 35, name: 'Florida State', seed: '4'},
-            { id: 36, name: 'Eastern Washington', seed: '14'},
-            { id: 37, name: 'Kansas', seed: '3'},
-            { id: 38, name: 'St. Bonaventure', seed: '9'},
-            { id: 39, name: 'LSU', seed: '8'},
-            { id: 40, name: 'Texas Southern', seed: '16'},
-            { id: 41, name: 'Michigan', seed: '1'},
-            { id: 42, name: 'UC Santa Barbara', seed: '12'},
-            { id: 43, name: 'Creighton', seed: '5'},
-            { id: 44, name: 'Iona', seed: '15'},
-            { id: 45, name: 'Alabama', seed: '2'},
-            { id: 46, name: 'Drake', seed: '11'},
-            { id: 47, name: 'USC', seed: '6'},
-            { id: 48, name: 'Grand Canyon', seed: '15'},
-            { id: 49, name: 'Iowa', seed: '2'},
-            { id: 50, name: 'Maryland', seed: '10'},
-            { id: 51, name: 'UConn', seed: '7'},
-            { id: 52, name: 'Ohio', seed: '13'},
-            { id: 53, name: 'Virginia', seed: '4'},
-            { id: 54, name: 'Missouri', seed: '9'},
-            { id: 55, name: 'Oklahoma', seed: '8'},
-            { id: 56, name: 'Norfolk State', seed: '16'},
-            { id: 57, name: 'Gonzaga', seed: '1'},
-            { id: 58, name: 'UCLA', seed: '11'},
-            { id: 59, name: 'BYU', seed: '6'},
-            { id: 60, name: 'Abeline Christian', seed: '14'},
-            { id: 61, name: 'Texas', seed: '3'},
-            { id: 62, name: 'VCU', seed: '10'},
-            { id: 63, name: 'Oregon', seed: '7'}
+            { id: 0, name: 'Alabama', seed: '1'},
+            { id: 1, name: 'Texas A&M - CC', seed: '16'},
+            { id: 2, name: 'Maryland', seed: '8'},
+            { id: 3, name: 'West Virginia', seed: '7'},
+            { id: 4, name: 'San Diego St.', seed: '5'},
+            { id: 5, name: 'Charleston', seed: '12'},
+            { id: 6, name: 'Virginia', seed: '4'},
+            { id: 7, name: 'Furman', seed: '13'},
+            { id: 8, name: 'Creighton', seed: '6'},
+            { id: 9, name: 'NC State', seed: '11'},
+            { id: 10, name: 'Baylor', seed: '3'},
+            { id: 11, name: 'UCSB', seed: '14'},
+            { id: 12, name: 'Missouri', seed: '7'},
+            { id: 13, name: 'Utah St.', seed: '10'},
+            { id: 14, name: 'Arizona', seed: '2'},
+            { id: 15, name: 'Princeton', seed: '15'},
+            { id: 16, name: 'Purdue', seed: '1'},
+            { id: 17, name: 'FDU', seed: '16'},
+            { id: 18, name: 'Memphis', seed: '8'},
+            { id: 19, name: 'Florida Atlantic', seed: '9'},
+            { id: 20, name: 'Duke', seed: '5'},
+            { id: 21, name: 'Oral Roberts', seed: '12'},
+            { id: 22, name: 'Tennessee', seed: '4'},
+            { id: 23, name: 'Louisiana', seed: '13'},
+            { id: 24, name: 'Kentucky', seed: '6'},
+            { id: 25, name: 'Providence', seed: '11'},
+            { id: 26, name: 'Kansas State', seed: '3'},
+            { id: 27, name: 'Montana State', seed: '14'},
+            { id: 28, name: 'Michigan State', seed: '7'},
+            { id: 29, name: 'USC', seed: '10'},
+            { id: 30, name: 'Marquette', seed: '2'},
+            { id: 31, name: 'Vermont', seed: '15'},
+            { id: 32, name: 'Houston', seed: '1'},
+            { id: 33, name: 'Northern Kentucky', seed: '16'},
+            { id: 34, name: 'Iowa', seed: '8'},
+            { id: 35, name: 'Auburn', seed: '9'},
+            { id: 36, name: 'Miami', seed: '5'},
+            { id: 37, name: 'Drake', seed: '12'},
+            { id: 38, name: 'Indiana', seed: '4'},
+            { id: 39, name: 'Kent State', seed: '13'},
+            { id: 40, name: 'Iowa State', seed: '6'},
+            { id: 41, name: 'Pittsburgh', seed: '11'},
+            { id: 42, name: 'Xavier', seed: '3'},
+            { id: 43, name: 'Kennesaw State', seed: '14'},
+            { id: 44, name: 'Texas A&M', seed: '7'},
+            { id: 45, name: 'Penn State', seed: '10'},
+            { id: 46, name: 'Texas', seed: '2'},
+            { id: 47, name: 'Colgate', seed: '15'},
+            { id: 48, name: 'Kansas', seed: '1'},
+            { id: 49, name: 'Howard', seed: '16'},
+            { id: 50, name: 'Arkansas', seed: '8'},
+            { id: 51, name: 'Illinois', seed: '9'},
+            { id: 52, name: 'Saint Mary\'s', seed: '5'},
+            { id: 53, name: 'VCU', seed: '12'},
+            { id: 54, name: 'UConn', seed: '4'},
+            { id: 55, name: 'Iona', seed: '13'},
+            { id: 56, name: 'TCU', seed: '6'},
+            { id: 57, name: 'Arizona State', seed: '11'},
+            { id: 58, name: 'Gonzaga', seed: '3'},
+            { id: 59, name: 'Grand Canyon', seed: '14'},
+            { id: 60, name: 'Northwestern', seed: '7'},
+            { id: 61, name: 'Boise State', seed: '10'},
+            { id: 62, name: 'UCLA', seed: '2'},
+            { id: 63, name: 'UNC Asheville', seed: '15'}
         ]
     };
   }
@@ -151,6 +153,32 @@ export default class App extends Component {
         this.resetThisAndFutureGames(false, game, winnerId, this.state[game].team);
       }
     }
+  }
+
+  setLoading = (state = !this.state.isLoading) => {
+    this.setState({ isLoading: state });
+  }
+
+  clearSelection = (game) => {
+    this.resetThisAndFutureGames(true, game, this.state[game].team, this.state[game].team);
+  }
+
+  resetAll = () => {
+    if (! this.state.sweet16winner49.played) { this.setState({ sweet16winner49: { team: null, played: false }}); }
+    if (! this.state.sweet16winner50.played) { this.setState({ sweet16winner50: { team: null, played: false }}); }
+    if (! this.state.sweet16winner51.played) { this.setState({ sweet16winner51: { team: null, played: false }}); }
+    if (! this.state.sweet16winner52.played) { this.setState({ sweet16winner52: { team: null, played: false }}); }
+    if (! this.state.sweet16winner53.played) { this.setState({ sweet16winner53: { team: null, played: false }}); }
+    if (! this.state.sweet16winner54.played) { this.setState({ sweet16winner54: { team: null, played: false }}); }
+    if (! this.state.sweet16winner55.played) { this.setState({ sweet16winner55: { team: null, played: false }}); }
+    if (! this.state.sweet16winner56.played) { this.setState({ sweet16winner56: { team: null, played: false }}); }
+    if (! this.state.elite8winner57.played) { this.setState({ elite8winner57: { team: null, played: false }}); }
+    if (! this.state.elite8winner58.played) { this.setState({ elite8winner58: { team: null, played: false }}); }
+    if (! this.state.elite8winner59.played) { this.setState({ elite8winner59: { team: null, played: false }}); }
+    if (! this.state.elite8winner60.played) { this.setState({ elite8winner60: { team: null, played: false }}); }
+    if (! this.state.final4winner61.played) { this.setState({ final4winner61: { team: null, played: false }}); }
+    if (! this.state.final4winner62.played) { this.setState({ final4winner62: { team: null, played: false }}); }
+    if (! this.state.championshipwinner63.played) { this.setState({ championshipwinner63: { team: null, played: false }}); }
   }
 
   resetThisAndFutureGames = (clearSelected, game, winnerId, previousWinner) => {
@@ -245,28 +273,28 @@ export default class App extends Component {
           <BracketGame className={className(round64winner32)} team1={teams[62]} team2={teams[63]} pickWinner={this.pickWinner} winner={round64winner32} name='round64winner32'/>
           
           <h3 className={currentRound > 2 ? 'hidden' : ''}>Round of 32</h3>
-          <BracketGame className={className(round32winner33)} team1={teams[round64winner3.team]} team2={teams[round64winner7.team]} pickWinner = {this.pickWinner} winner={round32winner33} name='round32winner33'/>
-          <BracketGame className={className(round32winner34)} team1={teams[round64winner8.team]} team2={teams[round64winner9.team]} pickWinner = {this.pickWinner} winner={round32winner34} name='round32winner34'/>
-          <BracketGame className={className(round32winner35)} team1={teams[round64winner14.team]} team2={teams[round64winner15.team]} pickWinner = {this.pickWinner} winner={round32winner35} name='round32winner35'/>
-          <BracketGame className={className(round32winner36)} team1={teams[round64winner11.team]} team2={teams[round64winner13.team]} pickWinner = {this.pickWinner} winner={round32winner36} name='round32winner36'/>
-          <BracketGame className={className(round32winner37)} team1={teams[round64winner6.team]} team2={teams[round64winner10.team]} pickWinner = {this.pickWinner} winner={round32winner37} name='round32winner37'/>
-          <BracketGame className={className(round32winner38)} team1={teams[round64winner12.team]} team2={teams[round64winner16.team]} pickWinner = {this.pickWinner} winner={round32winner38} name='round32winner38'/>
-          <BracketGame className={className(round32winner39)} team1={teams[round64winner2.team]} team2={teams[round64winner4.team]} pickWinner = {this.pickWinner} winner={round32winner39} name='round32winner39'/>
-          <BracketGame className={className(round32winner40)} team1={teams[round64winner1.team]} team2={teams[round64winner5.team]} pickWinner = {this.pickWinner} winner={round32winner40} name='round32winner40'/>
-          <BracketGame className={className(round32winner41)} team1={teams[round64winner28.team]} team2={teams[round64winner29.team]} pickWinner = {this.pickWinner} winner={round32winner41} name='round32winner41'/>
-          <BracketGame className={className(round32winner42)} team1={teams[round64winner22.team]} team2={teams[round64winner27.team]} pickWinner = {this.pickWinner} winner={round32winner42} name='round32winner42'/>
-          <BracketGame className={className(round32winner43)} team1={teams[round64winner19.team]} team2={teams[round64winner24.team]} pickWinner = {this.pickWinner} winner={round32winner43} name='round32winner43'/>
-          <BracketGame className={className(round32winner44)} team1={teams[round64winner25.team]} team2={teams[round64winner32.team]} pickWinner = {this.pickWinner} winner={round32winner44} name='round32winner44'/>
-          <BracketGame className={className(round32winner45)} team1={teams[round64winner20.team]} team2={teams[round64winner21.team]} pickWinner = {this.pickWinner} winner={round32winner45} name='round32winner45'/>
-          <BracketGame className={className(round32winner46)} team1={teams[round64winner17.team]} team2={teams[round64winner18.team]} pickWinner = {this.pickWinner} winner={round32winner46} name='round32winner46'/>
-          <BracketGame className={className(round32winner47)} team1={teams[round64winner30.team]} team2={teams[round64winner31.team]} pickWinner = {this.pickWinner} winner={round32winner47} name='round32winner47'/>
-          <BracketGame className={className(round32winner48)} team1={teams[round64winner23.team]} team2={teams[round64winner26.team]} pickWinner = {this.pickWinner} winner={round32winner48} name='round32winner48'/>
+          <BracketGame className={className(round32winner33)} team1={teams[round64winner1.team]} team2={teams[round64winner2.team]} pickWinner = {this.pickWinner} winner={round32winner33} name='round32winner33'/>
+          <BracketGame className={className(round32winner34)} team1={teams[round64winner3.team]} team2={teams[round64winner4.team]} pickWinner = {this.pickWinner} winner={round32winner34} name='round32winner34'/>
+          <BracketGame className={className(round32winner35)} team1={teams[round64winner5.team]} team2={teams[round64winner6.team]} pickWinner = {this.pickWinner} winner={round32winner35} name='round32winner35'/>
+          <BracketGame className={className(round32winner36)} team1={teams[round64winner7.team]} team2={teams[round64winner8.team]} pickWinner = {this.pickWinner} winner={round32winner36} name='round32winner36'/>
+          <BracketGame className={className(round32winner37)} team1={teams[round64winner9.team]} team2={teams[round64winner10.team]} pickWinner = {this.pickWinner} winner={round32winner37} name='round32winner37'/>
+          <BracketGame className={className(round32winner38)} team1={teams[round64winner11.team]} team2={teams[round64winner12.team]} pickWinner = {this.pickWinner} winner={round32winner38} name='round32winner38'/>
+          <BracketGame className={className(round32winner39)} team1={teams[round64winner13.team]} team2={teams[round64winner14.team]} pickWinner = {this.pickWinner} winner={round32winner39} name='round32winner39'/>
+          <BracketGame className={className(round32winner40)} team1={teams[round64winner15.team]} team2={teams[round64winner16.team]} pickWinner = {this.pickWinner} winner={round32winner40} name='round32winner40'/>
+          <BracketGame className={className(round32winner41)} team1={teams[round64winner17.team]} team2={teams[round64winner18.team]} pickWinner = {this.pickWinner} winner={round32winner41} name='round32winner41'/>
+          <BracketGame className={className(round32winner42)} team1={teams[round64winner19.team]} team2={teams[round64winner20.team]} pickWinner = {this.pickWinner} winner={round32winner42} name='round32winner42'/>
+          <BracketGame className={className(round32winner43)} team1={teams[round64winner21.team]} team2={teams[round64winner22.team]} pickWinner = {this.pickWinner} winner={round32winner43} name='round32winner43'/>
+          <BracketGame className={className(round32winner44)} team1={teams[round64winner23.team]} team2={teams[round64winner24.team]} pickWinner = {this.pickWinner} winner={round32winner44} name='round32winner44'/>
+          <BracketGame className={className(round32winner45)} team1={teams[round64winner25.team]} team2={teams[round64winner26.team]} pickWinner = {this.pickWinner} winner={round32winner45} name='round32winner45'/>
+          <BracketGame className={className(round32winner46)} team1={teams[round64winner27.team]} team2={teams[round64winner28.team]} pickWinner = {this.pickWinner} winner={round32winner46} name='round32winner46'/>
+          <BracketGame className={className(round32winner47)} team1={teams[round64winner29.team]} team2={teams[round64winner30.team]} pickWinner = {this.pickWinner} winner={round32winner47} name='round32winner47'/>
+          <BracketGame className={className(round32winner48)} team1={teams[round64winner31.team]} team2={teams[round64winner32.team]} pickWinner = {this.pickWinner} winner={round32winner48} name='round32winner48'/>
         
           <h3 className={currentRound > 3 ? 'hidden' : ''}>Sweet 16</h3>
-          <BracketGame className={className(sweet16winner49)} team1={teams[round32winner37.team]} team2={teams[round32winner38.team]} pickWinner = {this.pickWinner} winner={sweet16winner49} name='sweet16winner49'/>
-          <BracketGame className={className(sweet16winner50)} team1={teams[round32winner39.team]} team2={teams[round32winner40.team]} pickWinner = {this.pickWinner} winner={sweet16winner50} name='sweet16winner50'/>
-          <BracketGame className={className(sweet16winner51)} team1={teams[round32winner33.team]} team2={teams[round32winner34.team]} pickWinner = {this.pickWinner} winner={sweet16winner51} name='sweet16winner51'/>
-          <BracketGame className={className(sweet16winner52)} team1={teams[round32winner35.team]} team2={teams[round32winner36.team]} pickWinner = {this.pickWinner} winner={sweet16winner52} name='sweet16winner52'/>
+          <BracketGame className={className(sweet16winner49)} team1={teams[round32winner33.team]} team2={teams[round32winner34.team]} pickWinner = {this.pickWinner} winner={sweet16winner49} name='sweet16winner49'/>
+          <BracketGame className={className(sweet16winner50)} team1={teams[round32winner35.team]} team2={teams[round32winner36.team]} pickWinner = {this.pickWinner} winner={sweet16winner50} name='sweet16winner50'/>
+          <BracketGame className={className(sweet16winner51)} team1={teams[round32winner37.team]} team2={teams[round32winner38.team]} pickWinner = {this.pickWinner} winner={sweet16winner51} name='sweet16winner51'/>
+          <BracketGame className={className(sweet16winner52)} team1={teams[round32winner39.team]} team2={teams[round32winner40.team]} pickWinner = {this.pickWinner} winner={sweet16winner52} name='sweet16winner52'/>
           <BracketGame className={className(sweet16winner53)} team1={teams[round32winner41.team]} team2={teams[round32winner42.team]} pickWinner = {this.pickWinner} winner={sweet16winner53} name='sweet16winner53'/>
           <BracketGame className={className(sweet16winner54)} team1={teams[round32winner43.team]} team2={teams[round32winner44.team]} pickWinner = {this.pickWinner} winner={sweet16winner54} name='sweet16winner54'/>
           <BracketGame className={className(sweet16winner55)} team1={teams[round32winner45.team]} team2={teams[round32winner46.team]} pickWinner = {this.pickWinner} winner={sweet16winner55} name='sweet16winner55'/>
@@ -275,18 +303,19 @@ export default class App extends Component {
           <h3 className={currentRound > 4 ? 'hidden' : ''}>Elite 8</h3>
           <BracketGame className={className(elite8winner57)} team1={teams[sweet16winner49.team]} team2={teams[sweet16winner50.team]} pickWinner = {this.pickWinner} winner={elite8winner57} name='elite8winner57'/>
           <BracketGame className={className(elite8winner58)} team1={teams[sweet16winner51.team]} team2={teams[sweet16winner52.team]} pickWinner = {this.pickWinner} winner={elite8winner58} name='elite8winner58'/>
-          <BracketGame className={className(elite8winner59)} team1={teams[sweet16winner55.team]} team2={teams[sweet16winner56.team]} pickWinner = {this.pickWinner} winner={elite8winner59} name='elite8winner59'/>
-          <BracketGame className={className(elite8winner60)} team1={teams[sweet16winner53.team]} team2={teams[sweet16winner54.team]} pickWinner = {this.pickWinner} winner={elite8winner60} name='elite8winner60'/>
+          <BracketGame className={className(elite8winner59)} team1={teams[sweet16winner53.team]} team2={teams[sweet16winner54.team]} pickWinner = {this.pickWinner} winner={elite8winner59} name='elite8winner59'/>
+          <BracketGame className={className(elite8winner60)} team1={teams[sweet16winner55.team]} team2={teams[sweet16winner56.team]} pickWinner = {this.pickWinner} winner={elite8winner60} name='elite8winner60'/>
 
           <h3 className={currentRound > 5 ? 'hidden' : ''}>Final 4</h3>
-          <BracketGame className={className(final4winner61)} team1={teams[elite8winner59.team]} team2={teams[elite8winner60.team]} pickWinner = {this.pickWinner} winner={final4winner61} name='final4winner61'/>
-          <BracketGame className={className(final4winner62)} team1={teams[elite8winner57.team]} team2={teams[elite8winner58.team]} pickWinner = {this.pickWinner} winner={final4winner62} name='final4winner62'/>
+          <BracketGame className={className(final4winner61)} team1={teams[elite8winner57.team]} team2={teams[elite8winner58.team]} pickWinner = {this.pickWinner} winner={final4winner61} name='final4winner61'/>
+          <BracketGame className={className(final4winner62)} team1={teams[elite8winner59.team]} team2={teams[elite8winner60.team]} pickWinner = {this.pickWinner} winner={final4winner62} name='final4winner62'/>
         
           <h3>Championship</h3>
           <BracketGame className={className(championshipwinner63)} team1={teams[final4winner61.team]} team2={teams[final4winner62.team]} pickWinner = {this.pickWinner} winner={championshipwinner63} name='championshipwinner63'/>
         </div>
-        <Leaderboard data={this.state} />
+        <Leaderboard data={this.state} pickWinner={this.pickWinner} clearSelection={this.clearSelection} resetAll={this.resetAll} setLoading={this.setLoading} />
         </div>
+        <Loading className={this.state.isLoading ? "loading" : ''}/>
       </div>
     );
   }
