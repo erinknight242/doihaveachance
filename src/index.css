@@ -144,3 +144,7 @@ h3 {
     padding: 0;
   }
 }
+
+.game-time {
+  font-size: 0.8rem;
+}

@@ -243,7 +243,7 @@ function mapCbsTeamToReact(cbsItemId) {
         case 'tcnrs': return Data.Georgetown;
         case 'tcmzs': return Data.GeorgiaTech;
         case 'timjv': return Data.Gonzaga;
-        case '??': return Data.GrandCanyon;
+        case 'ojsgu': return Data.GrandCanyon;
         case '????': return Data.Hartford;
         case 'temzx': return Data.Houston;
         case 'tcojq': return Data.Illinois;
@@ -253,6 +253,7 @@ function mapCbsTeamToReact(cbsItemId) {
         case 'tembt': return Data.IowaState;
         case 'tembu': return Data.Kansas;
         case 'tembv': return Data.KansasState;
+        case 'ojtg4': return Data.KennesawState;
         case 'tgnjx': return Data.Kentucky;
         case 'tenzq': return Data.KentState;
         case 'tcobu': return Data.Liberty;
@@ -297,11 +298,13 @@ function mapCbsTeamToReact(cbsItemId) {
         case 'temjs': return Data.TexasTech;
         case 'tgnbr': return Data.UCLA;
         case 'tcnrr': return Data.UConn;
-        case 'temrt': return Data.UCSantaBarbara;
+        case 'temrt': return Data.UCSB;
+        case 'tcobv': return Data.UNCAsheville;
         case 'tgnzs': return Data.UNCGreensboro;
         case 'tgnbs': return Data.USC;
         case 'temru': return Data.UtahState;
         case 'temzs': return Data.VCU;
+        case 'tcnjz': return Data.Vermont;
         case 'tcnzr': return Data.Villanova;
         case 'tcmzw': return Data.Virginia;
         case 'tcnby': return Data.VirginiaTech;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { teamWasPicked, percentFor } from './bracketdata.js';
 
-function BracketGame({team1, team2, pickWinner, winner, name, className}) {
+function BracketGame({team1, team2, pickWinner, winner, name, className, gameTime = "TBD"}) {
   const teamColor = (clickedTeam) => winner.team === clickedTeam ? (winner.played ? 'green' : 'orange') : 'grey';
   const bgColor = (team) => teamWasPicked(team, name) || team === -1 ? '' : ' no-picks';
   const percentFor1 = percentFor(team1, name);
@@ -28,9 +28,14 @@ function BracketGame({team1, team2, pickWinner, winner, name, className}) {
     percent2 = ` (${percentFor2}%)`;
   }
 
+  const getDateFormat = (dateString) => {
+    const date = new Date(dateString);
+    return `${date.toLocaleDateString()}, ${date.toLocaleTimeString("en-US", { timeZoneName: "short", hour:"numeric", minute:"2-digit" })}`;
+  }
 
   return(
     <div className={`game-container${className !== '' ? ' ' + className : '' }`}>
+      <div className="game-time">{getDateFormat(gameTime)}</div>
       <div className={`team ${teamColor(id1)}${winner.played ? ' completed' : ''}${bgColor(id1)}`} onClick={pickWinner.bind(this, id1, name)}>
         <span className="seed">{seed1}</span>
         <span className="team-name">{name1}{percent1}</span>
