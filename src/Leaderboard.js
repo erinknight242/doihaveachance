@@ -89,7 +89,7 @@ export default class Leaderboard extends Component {
                 case 'sweet16winner50': return winnerId === this.props.data.round32winner35.team || winnerId === this.props.data.round32winner36.team;
                 case 'sweet16winner51': return winnerId === this.props.data.round32winner37.team || winnerId === this.props.data.round32winner38.team;
                 case 'sweet16winner52': return winnerId === this.props.data.round32winner39.team || winnerId === this.props.data.round32winner40.team;
-                case 'sweet16winner53': return winnerId === this.props.data.round32winner41.team || winnerId === this.props.data.ound32winner42.team;
+                case 'sweet16winner53': return winnerId === this.props.data.round32winner41.team || winnerId === this.props.data.round32winner42.team;
                 case 'sweet16winner54': return winnerId === this.props.data.round32winner43.team || winnerId === this.props.data.round32winner44.team;
                 case 'sweet16winner55': return winnerId === this.props.data.round32winner45.team || winnerId === this.props.data.round32winner46.team;
                 case 'sweet16winner56': return winnerId === this.props.data.round32winner47.team || winnerId === this.props.data.round32winner48.team;
