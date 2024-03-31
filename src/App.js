@@ -301,11 +301,11 @@ export default class App extends Component {
           <BracketGame gameTime = "3/30/24 2:09 UTC" className={className(sweet16winner56)} team1={teams[round32winner47.team]} team2={teams[round32winner48.team]} pickWinner = {this.pickWinner} winner={sweet16winner56} name='sweet16winner56'/>
           
           <h3 className={currentRound > 4 && !showAll ? 'hidden' : ''}>Elite 8</h3>
-          <BracketGame className={className(elite8winner57)} team1={teams[sweet16winner49.team]} team2={teams[sweet16winner50.team]} pickWinner = {this.pickWinner} winner={elite8winner57} name='elite8winner57'/>
-          <BracketGame className={className(elite8winner58)} team1={teams[sweet16winner51.team]} team2={teams[sweet16winner52.team]} pickWinner = {this.pickWinner} winner={elite8winner58} name='elite8winner58'/>
-          <BracketGame className={className(elite8winner59)} team1={teams[sweet16winner53.team]} team2={teams[sweet16winner54.team]} pickWinner = {this.pickWinner} winner={elite8winner59} name='elite8winner59'/>
-          <BracketGame className={className(elite8winner60)} team1={teams[sweet16winner55.team]} team2={teams[sweet16winner56.team]} pickWinner = {this.pickWinner} winner={elite8winner60} name='elite8winner60'/>
-
+          <BracketGame gameTime = "3/30/24 22:09 UTC" className={className(elite8winner57)} team1={teams[sweet16winner49.team]} team2={teams[sweet16winner50.team]} pickWinner = {this.pickWinner} winner={elite8winner57} name='elite8winner57'/>
+          <BracketGame gameTime = "3/31/24 00:49 UTC" className={className(elite8winner58)} team1={teams[sweet16winner51.team]} team2={teams[sweet16winner52.team]} pickWinner = {this.pickWinner} winner={elite8winner58} name='elite8winner58'/>
+          <BracketGame gameTime = "3/31/24 18:20 UTC" className={className(elite8winner60)} team1={teams[sweet16winner55.team]} team2={teams[sweet16winner56.team]} pickWinner = {this.pickWinner} winner={elite8winner60} name='elite8winner60'/>
+          <BracketGame gameTime = "3/31/24 21:05 UTC" className={className(elite8winner59)} team1={teams[sweet16winner53.team]} team2={teams[sweet16winner54.team]} pickWinner = {this.pickWinner} winner={elite8winner59} name='elite8winner59'/>
+          
           <h3 className={currentRound > 5 && !showAll ? 'hidden' : ''}>Final 4</h3>
           <BracketGame className={className(final4winner61)} team1={teams[elite8winner57.team]} team2={teams[elite8winner58.team]} pickWinner = {this.pickWinner} winner={final4winner61} name='final4winner61'/>
           <BracketGame className={className(final4winner62)} team1={teams[elite8winner59.team]} team2={teams[elite8winner60.team]} pickWinner = {this.pickWinner} winner={final4winner62} name='final4winner62'/>
