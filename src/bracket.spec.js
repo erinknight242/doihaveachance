@@ -1,5 +1,6 @@
 import { brackets, calculateEspnScore, teamWasPicked } from './bracketdata.js';
 import { convertEspnPool, convertCbsBracket } from './importer.js';
+import bracketjson from './bracketjson.json';
 
 const sampleData = {
     round64winner1: { team: 1, played: true },
@@ -303,12 +304,11 @@ describe('Helper functions', () => {
 });
  
 describe('Import bracket data', () => {
-    it('Imports ESPN data', () => {
-        const object = {/* Paste JSON here */};
-        console.log(convertEspnPool(/*object*/));
-    });
+    // it('Imports ESPN data', () => {
+    //     const object = {/* Paste JSON here */};
+    //     console.log(convertEspnPool(/*object*/));
+    // });
     it('Imports CBS data', () => {
-        const object = {/* Paste JSON here */};
-        console.log(convertCbsBracket(/*object*/));
+        console.log(convertCbsBracket(bracketjson));
     });
 });
