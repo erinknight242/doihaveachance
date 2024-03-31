@@ -97,9 +97,9 @@ export default class Leaderboard extends Component {
                 case 'elite8winner58': return winnerId === this.props.data.sweet16winner51.team || winnerId === this.props.data.sweet16winner52.team;
                 case 'elite8winner59': return winnerId === this.props.data.sweet16winner53.team || winnerId === this.props.data.sweet16winner54.team;
                 case 'elite8winner60': return winnerId === this.props.data.sweet16winner55.team || winnerId === this.props.data.sweet16winner56.team;
-                case 'final4winner61': return winnerId === tempData.elite8winner57 || winnerId === tempData.elite8winner58;
-                case 'final4winner62': return winnerId === tempData.elite8winner59 || winnerId === tempData.elite8winner60;
-                case 'championshipwinner63': return winnerId === tempData.final4winner61 || winnerId === tempData.final4winner62;
+                case 'final4winner61': return winnerId === this.props.data.elite8winner57.team || winnerId === this.props.data.elite8winner58.team;
+                case 'final4winner62': return winnerId === this.props.data.elite8winner59.team || winnerId === this.props.data.elite8winner60.team;
+                case 'championshipwinner63': return winnerId === this.props.data.final4winner61.team || winnerId === this.props.data.final4winner62.team;
                 default: return null;
             }
         }
