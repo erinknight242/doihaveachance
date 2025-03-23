@@ -1,118 +1,129 @@
-const UConn = 0;
-const Stetson = 1;
-const FloridaAtlantic = 2;
-const Northwestern = 3;
-const SanDiegoState = 4;
-const UAB = 5;
-const Auburn = 6;
+/* Each year, enter the teams below in the order listed on the bracket,
+*  Then update "window.winners" to include the winners of any completed games,
+*  and set currentRound equal to the active round.
+*
+*  This file needs to exist in the public folder for the website to load, but will
+*  be overwritten by any builds.
+*/
+//South Bracket
+const Auburn = 0;
+const AlabamaState = 1;
+const Louisville = 2;
+const Creighton = 3;
+const Michigan = 4;
+const CALSD = 5;
+const TAMU = 6;
 const Yale = 7;
-const BYU = 8;
-const Duquesne = 9;
-const Illinois = 10;
-const MoreheadState = 11;
-const WashingtonState = 12;
-const Drake = 13;
-const IowaState = 14;
-const SouthDakotaState = 15;
-const NorthCarolina = 16;
-const Wagner = 17;
-const MississippiState = 18;
-const MichiganState = 19;
-const SaintMarys = 20;
-const GrandCanyon = 21;
-const Alabama = 22;
-const Charleston = 23;
-const Clemson = 24;
-const NewMexico = 25;
-const Baylor = 26;
-const Colgate = 27;
-const Dayton = 28;
-const Nevada = 29;
-const Arizona = 30;
-const LongBeachState = 31;
-const Houston = 32;
-const Longwood = 33;
-const Nebraska = 34;
-const TAMU = 35;
-const Wisconsin = 36;
-const JamesMadison = 37;
-const Duke = 38;
-const Vermont = 39;
-const TexasTech = 40;
-const NCState = 41;
-const Kentucky = 42;
-const Oakland = 43;
-const Florida = 44;
-const Colorado = 45;
-const Marquette = 46;
-const WesternKentucky = 47;
-const Purdue = 48;
-const GramblingState = 49;
-const UtahState = 50;
-const TCU = 51;
-const Gonzaga = 52;
+const OleMiss = 8;
+const NorthCarolina = 9;
+const IowaState = 10;
+const Lipscomb = 11;
+const Marquette = 12;
+const NewMexico = 13;
+const MichiganState = 14;
+const Bryant = 15;
+//West Bracket
+const Florida = 16;
+const NorfolkState = 17;
+const UConn = 18;
+const Oklahoma = 19;
+const Memphis = 20;
+const ColoradoState = 21;
+const Maryland = 22;
+const GrandCanyon = 23;
+const Missouri = 24;
+const Drake = 25;
+const TexasTech = 26;
+const UNCW = 27;
+const Kansas = 28;
+const Arkansas = 29;
+const SaintJohns = 30;
+const Omaha = 31;
+//East Bracket
+const Duke = 32;
+const MOUNT = 33;
+const MississippiState = 34;
+const Baylor = 35;
+const Oregon = 36;
+const Liberty = 37;
+const Arizona = 38;
+const Akron = 39;
+const BYU = 40;
+const VCU = 41;
+const Wisconsin = 42;
+const Montana = 43;
+const SaintMarys = 44;
+const Vanderbilt = 45;
+const Alabama = 46;
+const ROBERT = 47;
+//Midwest Bracket
+const Houston = 48;
+const SIUE = 49;
+const Gonzaga = 50;
+const Georgia = 51;
+const Clemson = 52;
 const McNeese = 53;
-const Kansas = 54;
-const Samford = 55;
-const SouthCarolina = 56;
-const Oregon = 57;
-const Creighton = 58;
-const Akron = 59;
-const Texas = 60;
-const ColoradoState = 61;
+const Purdue = 54;
+const HighPoint = 55;
+const Illinois = 56;
+const Xavier = 57;
+const Kentucky = 58;
+const Troy = 59;
+const UCLA = 60;
+const UtahState = 61;
 const Tennessee = 62;
-const SaintPeters = 63;
+const Wofford = 63;
 
 window.winners = {
-    currentRound: 3,
-    round64winner1: { team: UConn, played: true},
-    round64winner2: { team: Northwestern, played: true},
-    round64winner3: { team: SanDiegoState, played: true},
-    round64winner4: { team: Yale, played: true},
-    round64winner5: { team: Duquesne, played: true},
-    round64winner6: { team: Illinois, played: true},
-    round64winner7: { team: WashingtonState, played: true},
-    round64winner8: { team: IowaState, played: true},
-    round64winner9: { team: NorthCarolina, played: true},
-    round64winner10: { team: MichiganState, played: true},
-    round64winner11: { team: GrandCanyon, played: true},
-    round64winner12: { team: Alabama, played: true},
-    round64winner13: { team: Clemson, played: true},
-    round64winner14: { team: Baylor, played: true},
-    round64winner15: { team: Dayton, played: true},
-    round64winner16: { team: Arizona, played: true},
-    round64winner17: { team: Houston, played: true},
-    round64winner18: { team: TAMU, played: true},
-    round64winner19: { team: JamesMadison, played: true},
-    round64winner20: { team: Duke, played: true},
-    round64winner21: { team: NCState, played: true},
-    round64winner22: { team: Oakland, played: true},
-    round64winner23: { team: Colorado, played: true},
-    round64winner24: { team: Marquette, played: true},
-    round64winner25: { team: Purdue, played: true},
-    round64winner26: { team: UtahState, played: true},
-    round64winner27: { team: Gonzaga, played: true},
-    round64winner28: { team: Kansas, played: true},
-    round64winner29: { team: Oregon, played: true},
-    round64winner30: { team: Creighton, played: true},
-    round64winner31: { team: Texas, played: true},
+    currentRound: 2,
+    round64winner1: { team: Auburn, played: true},
+    round64winner2: { team: Creighton, played: true},
+    round64winner3: { team: Michigan, played: true},
+    round64winner4: { team: TAMU, played: true},
+    round64winner5: { team: OleMiss, played: true},
+    round64winner6: { team: IowaState, played: true},
+    round64winner7: { team: NewMexico, played: true},
+    round64winner8: { team: MichiganState, played: true},
+    round64winner9: { team: Florida, played: true},
+    round64winner10: { team: UConn, played: true},
+    round64winner11: { team: ColoradoState, played: true},
+    round64winner12: { team: Maryland, played: true},
+    round64winner13: { team: Drake, played: true},
+    round64winner14: { team: TexasTech, played: true},
+    round64winner15: { team: Arkansas, played: true},
+    round64winner16: { team: SaintJohns, played: true},
+    round64winner17: { team: Duke, played: true},
+    round64winner18: { team: Baylor, played: true},
+    round64winner19: { team: Oregon, played: true},
+    round64winner20: { team: Arizona, played: true},
+    round64winner21: { team: BYU, played: true},
+    round64winner22: { team: Wisconsin, played: true},
+    round64winner23: { team: SaintMarys, played: true},
+    round64winner24: { team: Alabama, played: true},
+    round64winner25: { team: Houston, played: true},
+    round64winner26: { team: Gonzaga, played: true},
+    round64winner27: { team: McNeese, played: true},
+    round64winner28: { team: Purdue, played: true},
+    round64winner29: { team: Illinois, played: true},
+    round64winner30: { team: Kentucky, played: true},
+    round64winner31: { team: UCLA, played: true},
     round64winner32: { team: Tennessee, played: true},
-    round32winner33: { team: UConn, played: true},
-    round32winner34: { team: SanDiegoState, played: true},
-    round32winner35: { team: Illinois, played: true},
-    round32winner36: { team: IowaState, played: true},
-    round32winner37: { team: NorthCarolina, played: true},
-    round32winner38: { team: Alabama, played: true},
-    round32winner39: { team: Clemson, played: true},
-    round32winner40: { team: Arizona, played: true},
-    round32winner41: { team: Houston, played: true},
-    round32winner42: { team: Duke, played: true},
-    round32winner43: { team: NCState, played: true},
-    round32winner44: { team: Marquette, played: true},
-    round32winner45: { team: Purdue, played: true},
-    round32winner46: { team: Gonzaga, played: true},
-    round32winner47: { team: Creighton, played: true},
-    round32winner48: { team: Tennessee, played: true},
+    round32winner33: { team: null, played: false},
+    round32winner34: { team: null, played: false},
+    round32winner35: { team: null, played: false},
+    round32winner36: { team: null, played: false},
+    round32winner37: { team: null, played: false},
+    round32winner38: { team: null, played: false},
+    round32winner39: { team: null, played: false},
+    round32winner40: { team: null, played: false},
+    round32winner41: { team: null, played: false},
+    round32winner42: { team: null, played: false},
+    round32winner43: { team: null, played: false},
+    round32winner44: { team: null, played: false},
+    round32winner45: { team: null, played: false},
+    round32winner46: { team: null, played: false},
+    round32winner47: { team: null, played: false},
+    round32winner48: { team: null, played: false},
     sweet16winner49: { team: null, played: false},
     sweet16winner50: { team: null, played: false},
     sweet16winner51: { team: null, played: false},

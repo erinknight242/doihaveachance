@@ -30,17 +30,17 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ## How to update data for a new year
 1. Make a local branch for the new pool
-2. Print out a bracket and number the teams 0 through 63 (or, if using ESPN brackets, write down the team ID's from there)
+2. Print out a bracket and number the teams 0 through 63 (no brackets use a simple ID anymore so it doesn't matter which one you use to number)
 3. Update `bracketdata.js` to include the 63 teams in this year's tournament with their ID
 4. Copy the constants over to winners.js
 5. In `App.js`, update the teams object to match the bracketdata display names
-6. For CBS brackets, open someone's bracket on the web, look at the network tab, find the `EntryDetailsQuery`, and update `importer.js` mapCbsGameToReact to match the 5 unique characters from the end of the slotID (before the ='s signs) of each pick in the order listed. Check that the CBS SlotId is parsing the right characters of the ID.
-7. To import each person's picks, open their bracket on the web, look at the network tab, find the `EntryDetailsQuery`, and copy the Response. Paste it in the `bracketjson.json`, save, and run yarn test. For any "null" rows returned, update the mapCbsTeamToReact array to include the 5 unique characters from the end of the itemID for that pick
+6. For CBS brackets, open someone's bracket on the web, look at the network tab, find the `EntryDetailsQuery`, and update `importer.js` mapCbsGameToReact to match the 5 unique characters from the end of the slotID (before the ='s signs) of each pick in the order listed. Check that the CBS SlotId is parsing the right characters of the ID. For ESPN brackets, ...
+7. To import each person's picks, open their bracket on the web, look at the network tab, find the `EntryDetailsQuery`, and copy the Response. Paste it in the `bracketjson.json`, save, and run yarn test. For any "null" rows returned, update the mapCbsTeamToReact array to include the 5 unique characters from the end of the itemID for that pick. Paste the output of the test into `bracketdata.js`.
 8. Update the homepage in `package.json` to name the correct pool
 9. Update `winners.js` to have the right currentRound (starting with 1)
 10. Run `yarn build`; copy build folder into FTP site
 11. Run `yarn start` to test locally (might need to upload winners.js and update URL)
-12. Update game date/times on `App.js`
+12. Update known game date/times on `App.js`
 
 ### Updating as the tournament continues
 Make updates to `winners.js` as games complete to enter what team won the game (and update currentRound if we have moved to a new round). Change the filename to include a timestamp (like winners-315.js) to act as a cache bust; update the import in index.html to match the new file name.

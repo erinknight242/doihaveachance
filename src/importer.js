@@ -1,9 +1,8 @@
 import * as Data from './bracketdata';
 
-/* To get your pool's string, navigate to your personal ESPN Tournament Challenge bracket 
-(something like https://fantasy.espn.com/tournament-challenge-bracket/2021/en/entry?entryID=XXXXXXXXX), 
+/* To get your pool's json string, navigate to your personal ESPN Tournament Challenge GROUP page, 
 and open the developer tools. Refresh the page, and on the Network tab, filter to XHR requests. 
-Click the one that starts like "group?groupId=", click the Response tab, select all, and copy it. 
+Search the network requests for "group", click the Response tab, select all, and copy it. 
 Paste it below replacing the example object, and then run yarn test. It will output your bracket 
 object in the console. Copy it, and paste it in bracketdata.js in place of "brackets". Run the tests
 one more time after pasting it in to verify that it is formatted properly. */ 
@@ -181,7 +180,7 @@ open the bracket you want to import (something like
 https://picks.cbssports.com/college-basketball/ncaa-tournament/bracket/pools/XXX====?entryId=YYY), 
 and open the developer tools. Refresh the page, and on the Network tab, filter to XHR requests. 
 Click the one that starts like "graphql?operationName=EntryDetailsQuery", click the Response tab,
-select all, and copy it. Paste it below replacing the example object, and then run yarn test. It
+select all, and copy it. Paste the picks below replacing the example object, and then run yarn test. It
 will output your bracket object in the console. Copy it, and paste it in bracketdata.js in place
 of one of the brackets in the "brackets" array. Repeat for each bracket you want to add to the app.
 Run the tests one more time after pasting everything in to verify that it is formatted properly. */ 
@@ -200,15 +199,13 @@ const cbsExample = {
     }
 };
 
-
-
 export const convertCbsBracket = (bracketJson = cbsExample) => {
-    const object = bracketJson;
+    const jsonObject = bracketJson;
     let bracketObject = {};
-    bracketObject.name = object.data.entry.name;
-    for (let i = 0; i < object.data.entry.picks.length; i++) {
-        const winner = mapCbsTeamToReact(object.data.entry.picks[i].itemId);
-        const game = mapCbsGameToReact(object.data.entry.picks[i].slotId);
+    bracketObject.name = jsonObject.data.entry.name;
+    for (let i = 0; i < jsonObject.data.entry.picks.length; i++) {
+        const winner = mapCbsTeamToReact(jsonObject.data.entry.picks[i].itemId);
+        const game = mapCbsGameToReact(jsonObject.data.entry.picks[i].slotId);
         bracketObject[game] = winner;
     }
     return bracketObject;
@@ -263,6 +260,7 @@ function mapCbsTeamToReact(cbsItemId) {
         case 'tenzq': return Data.KentState;
         case 'tcobu': return Data.Liberty;
         case 'timbs': return Data.Louisiana;
+        case 'temzy': return Data.Louisville;
         case 'temjy': return Data.LongBeachState;
         case 'tgmbq': return Data.LoyolaChicago;
         case 'tgnjy': return Data.LSU;
@@ -290,6 +288,8 @@ function mapCbsTeamToReact(cbsItemId) {
         case 'tcojx': return Data.OhioSt;
         case 'temby': return Data.Oklahoma;
         case 'tembz': return Data.OklahomaState;
+        case 'tgnjz': return Data.OleMiss;
+        case 'daojy': return Data.Omaha;
         case 'tenzz': return Data.OralRoberts;
         case 'tgmzy': return Data.Oregon;
         case 'tgmzz': return Data.OregonState;
@@ -321,6 +321,7 @@ function mapCbsTeamToReact(cbsItemId) {
         case 'temru': return Data.UtahState;
         case 'temzs': return Data.VCU;
         case 'tcnjz': return Data.Vermont;
+        case 'tgnrt': return Data.Vanderbilt;
         case 'tcnzr': return Data.Villanova;
         case 'tcmzw': return Data.Virginia;
         case 'tcnby': return Data.VirginiaTech;
@@ -337,69 +338,69 @@ function mapCbsTeamToReact(cbsItemId) {
 function mapCbsGameToReact(cbsSlotId) {
     const cbsId = cbsSlotId.slice(21,26); // This may need to change year to year
     switch (cbsId) {
-        case 'mbxgu': return 'round64winner1';
-        case 'mbxg4': return 'round64winner2';
-        case 'mbxhe': return 'round64winner3';
-        case 'mbyge': return 'round64winner4';
-        case 'mbygm': return 'round64winner5';
-        case 'mbygu': return 'round64winner6';
-        case 'mbyg4': return 'round64winner7';
-        case 'mbyhe': return 'round64winner8';
-        case 'mjtgu': return 'round64winner9';
-        case 'mjtg4': return 'round64winner10';
-        case 'mjthe': return 'round64winner11';
-        case 'mjuge': return 'round64winner12';
-        case 'mjugm': return 'round64winner13';
-        case 'mjugu': return 'round64winner14';
-        case 'mjug4': return 'round64winner15';
-        case 'mjuhe': return 'round64winner16';
-        case 'mjqgu': return 'round64winner17';
-        case 'mjqg4': return 'round64winner18';
-        case 'mjqhe': return 'round64winner19';
-        case 'mjrge': return 'round64winner20';
-        case 'mjrgm': return 'round64winner21';
-        case 'mjrgu': return 'round64winner22';
-        case 'mjrg4': return 'round64winner23';
-        case 'mjrhe': return 'round64winner24';
-        case 'mjwgu': return 'round64winner25';
-        case 'mjwg4': return 'round64winner26';
-        case 'mjwhe': return 'round64winner27';
-        case 'mjxge': return 'round64winner28';
-        case 'mjxgm': return 'round64winner29';
-        case 'mjxgu': return 'round64winner30';
-        case 'mjxg4': return 'round64winner31';
-        case 'mjxhe': return 'round64winner32';
-        case 'mbzge': return 'round32winner33';
-        case 'mbzgm': return 'round32winner34';
-        case 'mbzgu': return 'round32winner35';
-        case 'mbzg4': return 'round32winner36';
-        case 'mjvge': return 'round32winner37';
-        case 'mjvgm': return 'round32winner38';
-        case 'mjvgu': return 'round32winner39';
-        case 'mjvg4': return 'round32winner40';
-        case 'mjsge': return 'round32winner41';
-        case 'mjsgm': return 'round32winner42';
-        case 'mjsgu': return 'round32winner43';
-        case 'mjsg4': return 'round32winner44';
-        case 'mjyge': return 'round32winner45';
-        case 'mjygm': return 'round32winner46';
-        case 'mjygu': return 'round32winner47';
-        case 'mjyg4': return 'round32winner48';
-        case 'mbzhe': return 'sweet16winner49';
-        case 'mjqge': return 'sweet16winner50';
-        case 'mjvhe': return 'sweet16winner51';
-        case 'mjwge': return 'sweet16winner52';
-        case 'mjshe': return 'sweet16winner53';
-        case 'mjtge': return 'sweet16winner54';
-        case 'mjyhe': return 'sweet16winner55';
-        case 'mjzge': return 'sweet16winner56';
-        case 'mjqgm': return 'elite8winner57';
-        case 'mjwgm': return 'elite8winner58';
-        case 'mjtgm': return 'elite8winner59';
-        case 'mjzgm': return 'elite8winner60';
-        case 'mjzgu': return 'final4winner61';
-        case 'mjzg4': return 'final4winner62';
-        case 'mjzhe': return 'championshipwinner63';
-        default: return null;
+        case 'njsge': return 'round64winner1';
+        case 'njsgm': return 'round64winner2';
+        case 'njsgu': return 'round64winner3';
+        case 'njsg4': return 'round64winner4';
+        case 'njshe': return 'round64winner5';
+        case 'njtge': return 'round64winner6';
+        case 'njtgm': return 'round64winner7';
+        case 'njtgu': return 'round64winner8';
+        case 'njyga': return 'round64winner9';
+        case 'njygi': return 'round64winner10';
+        case 'njygq': return 'round64winner11';
+        case 'njygy': return 'round64winner12';
+        case 'njyha': return 'round64winner13';
+        case 'njzga': return 'round64winner14';
+        case 'njzgi': return 'round64winner15';
+        case 'njzgq': return 'round64winner16';
+        case 'njvga': return 'round64winner17';
+        case 'njvgi': return 'round64winner18';
+        case 'njvgq': return 'round64winner19';
+        case 'njvgy': return 'round64winner20';
+        case 'njvg4': return 'round64winner21';
+        case 'njvhe': return 'round64winner22';
+        case 'njwge': return 'round64winner23';
+        case 'njwgm': return 'round64winner24';
+        case 'nrrge': return 'round64winner25';
+        case 'nrrgm': return 'round64winner26';
+        case 'nrrgu': return 'round64winner27';
+        case 'nrrg4': return 'round64winner28';
+        case 'nrrhe': return 'round64winner29';
+        case 'nrsgi': return 'round64winner30';
+        case 'nrsgq': return 'round64winner31';
+        case 'nrsg4': return 'round64winner32';
+        case 'njtha': return 'round32winner33';
+        case 'njuga': return 'round32winner34';
+        case 'njugi': return 'round32winner35';
+        case 'njugq': return 'round32winner36';
+        case 'njzgy': return 'round32winner37';
+        case 'njzha': return 'round32winner38';
+        case 'nrqge': return 'round32winner39';
+        case 'nrqgm': return 'round32winner40';
+        case 'njwgu': return 'round32winner41';
+        case 'njwha': return 'round32winner42';
+        case 'njxga': return 'round32winner43';
+        case 'njxgi': return 'round32winner44';
+        case 'nrshe': return 'round32winner45';
+        case 'nrtge': return 'round32winner46';
+        case 'nrtgm': return 'round32winner47';
+        case 'nrtgu': return 'round32winner48';
+        case 'njugu': return 'sweet16winner49';
+        case 'njug4': return 'sweet16winner50';
+        case 'nrqgu': return 'sweet16winner51';
+        case 'nrqg4': return 'sweet16winner52';
+        case 'njxgq': return 'sweet16winner53';
+        case 'njxgy': return 'sweet16winner54';
+        case 'nrtgy': return 'sweet16winner55';
+        case 'nrtha': return 'sweet16winner56';
+        case 'njuha': return 'elite8winner57';
+        case 'nrqhe': return 'elite8winner58';
+        case 'njxha': return 'elite8winner59';
+        case 'nrthe': return 'elite8winner60';
+        case 'nruga': return 'final4winner61';
+        case 'nrugi': return 'final4winner62';
+        case 'nrugq': return 'championshipwinner63';
+        default: console.log('**Unknown value'); return null;
     }
 }

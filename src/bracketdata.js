@@ -1,70 +1,139 @@
 /* eslint-disable no-unused-expressions */
-export const UConn = 0;
-export const Stetson = 1;
-export const FloridaAtlantic = 2;
-export const Northwestern = 3;
-export const SanDiegoState = 4;
-export const UAB = 5;
-export const Auburn = 6;
+//South Bracket
+export const Auburn = 0;
+export const AlabamaState = 1;
+export const Louisville = 2;
+export const Creighton = 3;
+export const Michigan = 4;
+export const CALSD = 5;
+export const TAMU = 6;
 export const Yale = 7;
-export const BYU = 8;
-export const Duquesne = 9;
-export const Illinois = 10;
-export const MoreheadState = 11;
-export const WashingtonState = 12;
-export const Drake = 13;
-export const IowaState = 14;
-export const SouthDakotaState = 15;
-export const NorthCarolina = 16;
-export const Wagner = 17;
-export const MississippiState = 18;
-export const MichiganState = 19;
-export const SaintMarys = 20;
-export const GrandCanyon = 21;
-export const Alabama = 22;
-export const Charleston = 23;
-export const Clemson = 24;
-export const NewMexico = 25;
-export const Baylor = 26;
-export const Colgate = 27;
-export const Dayton = 28;
-export const Nevada = 29;
-export const Arizona = 30;
-export const LongBeachState = 31;
-export const Houston = 32;
-export const Longwood = 33;
-export const Nebraska = 34;
-export const TAMU = 35;
-export const Wisconsin = 36;
-export const JamesMadison = 37;
-export const Duke = 38;
-export const Vermont = 39;
-export const TexasTech = 40;
-export const NCState = 41;
-export const Kentucky = 42;
-export const Oakland = 43;
-export const Florida = 44;
-export const Colorado = 45;
-export const Marquette = 46;
-export const WesternKentucky = 47;
-export const Purdue = 48;
-export const GramblingState = 49;
-export const UtahState = 50;
-export const TCU = 51;
-export const Gonzaga = 52;
+export const OleMiss = 8;
+export const NorthCarolina = 9;
+export const IowaState = 10;
+export const Lipscomb = 11;
+export const Marquette = 12;
+export const NewMexico = 13;
+export const MichiganState = 14;
+export const Bryant = 15;
+//West Bracket
+export const Florida = 16;
+export const NorfolkState = 17;
+export const UConn = 18;
+export const Oklahoma = 19;
+export const Memphis = 20;
+export const ColoradoState = 21;
+export const Maryland = 22;
+export const GrandCanyon = 23;
+export const Missouri = 24;
+export const Drake = 25;
+export const TexasTech = 26;
+export const UNCW = 27;
+export const Kansas = 28;
+export const Arkansas = 29;
+export const SaintJohns = 30;
+export const Omaha = 31;
+//East Bracket
+export const Duke = 32;
+export const MOUNT = 33;
+export const MississippiState = 34;
+export const Baylor = 35;
+export const Oregon = 36;
+export const Liberty = 37;
+export const Arizona = 38;
+export const Akron = 39;
+export const BYU = 40;
+export const VCU = 41;
+export const Wisconsin = 42;
+export const Montana = 43;
+export const SaintMarys = 44;
+export const Vanderbilt = 45;
+export const Alabama = 46;
+export const ROBERT = 47;
+//Midwest Bracket
+export const Houston = 48;
+export const SIUE = 49;
+export const Gonzaga = 50;
+export const Georgia = 51;
+export const Clemson = 52;
 export const McNeese = 53;
-export const Kansas = 54;
-export const Samford = 55;
-export const SouthCarolina = 56;
-export const Oregon = 57;
-export const Creighton = 58;
-export const Akron = 59;
-export const Texas = 60;
-export const ColoradoState = 61;
+export const Purdue = 54;
+export const HighPoint = 55;
+export const Illinois = 56;
+export const Xavier = 57;
+export const Kentucky = 58;
+export const Troy = 59;
+export const UCLA = 60;
+export const UtahState = 61;
 export const Tennessee = 62;
-export const SaintPeters = 63;
+export const Wofford = 63;
 
-export const brackets = [/* Paste formatted bracket objects here */];
+export const brackets = [ {
+    name: 'Erin Knight',
+    round64winner1: 0,
+    round64winner2: 2,
+    round64winner3: 4,
+    round64winner4: 6,
+    round64winner5: 8,
+    round64winner6: 10,
+    round64winner7: 13,
+    round64winner8: 14,
+    round64winner9: 16,
+    round64winner10: 18,
+    round64winner11: 20,
+    round64winner12: 22,
+    round64winner13: 24,
+    round64winner14: 26,
+    round64winner15: 28,
+    round64winner16: 31,
+    round64winner17: 32,
+    round64winner18: 35,
+    round64winner19: 36,
+    round64winner20: 38,
+    round64winner21: 41,
+    round64winner22: 42,
+    round64winner23: 45,
+    round64winner24: 46,
+    round64winner25: 48,
+    round64winner26: 50,
+    round64winner27: 52,
+    round64winner28: 54,
+    round64winner29: 57,
+    round64winner30: 58,
+    round64winner31: 60,
+    round64winner32: 62,
+    round32winner33: 0,
+    round32winner34: 4,
+    round32winner35: 10,
+    round32winner36: 14,
+    round32winner37: 16,
+    round32winner38: 22,
+    round32winner39: 26,
+    round32winner40: 28,
+    round32winner41: 32,
+    round32winner42: 38,
+    round32winner43: 42,
+    round32winner44: 46,
+    round32winner45: 48,
+    round32winner46: 54,
+    round32winner47: 58,
+    round32winner48: 62,
+    sweet16winner49: 4,
+    sweet16winner50: 14,
+    sweet16winner51: 16,
+    sweet16winner52: 26,
+    sweet16winner53: 32,
+    sweet16winner54: 42,
+    sweet16winner55: 48,
+    sweet16winner56: 62,
+    elite8winner57: 14,
+    elite8winner58: 16,
+    elite8winner59: 32,
+    elite8winner60: 48,
+    final4winner61: 16,
+    final4winner62: 32,
+    championshipwinner63: 16
+  }];
 
 export const calculateCbsScore = (data, bracket) => {
     let score = 0;

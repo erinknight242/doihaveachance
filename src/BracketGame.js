@@ -31,6 +31,8 @@ function BracketGame({team1, team2, pickWinner, winner, name, className, gameTim
   const getDateFormat = (dateString) => {
     if (dateString === "TBD") {
       return "TBD";
+    } else if (dateString === "") {
+      return "";
     }
     const date = new Date(dateString);
     return `${date.toLocaleDateString()}, ${date.toLocaleTimeString("en-US", { timeZoneName: "short", hour:"numeric", minute:"2-digit" })}`;
