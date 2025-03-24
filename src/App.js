@@ -164,6 +164,22 @@ export default class App extends Component {
   }
 
   resetAll = () => {
+    if (! this.state.round32winner33.played) { this.setState({ round32winner33: { team: null, played: false }}); }
+    if (! this.state.round32winner34.played) { this.setState({ round32winner34: { team: null, played: false }}); }
+    if (! this.state.round32winner35.played) { this.setState({ round32winner35: { team: null, played: false }}); }
+    if (! this.state.round32winner36.played) { this.setState({ round32winner36: { team: null, played: false }}); }
+    if (! this.state.round32winner37.played) { this.setState({ round32winner37: { team: null, played: false }}); }
+    if (! this.state.round32winner38.played) { this.setState({ round32winner38: { team: null, played: false }}); }
+    if (! this.state.round32winner39.played) { this.setState({ round32winner39: { team: null, played: false }}); }
+    if (! this.state.round32winner40.played) { this.setState({ round32winner40: { team: null, played: false }}); }
+    if (! this.state.round32winner41.played) { this.setState({ round32winner41: { team: null, played: false }}); }
+    if (! this.state.round32winner42.played) { this.setState({ round32winner42: { team: null, played: false }}); }
+    if (! this.state.round32winner43.played) { this.setState({ round32winner43: { team: null, played: false }}); }
+    if (! this.state.round32winner44.played) { this.setState({ round32winner44: { team: null, played: false }}); }
+    if (! this.state.round32winner45.played) { this.setState({ round32winner45: { team: null, played: false }}); }
+    if (! this.state.round32winner46.played) { this.setState({ round32winner46: { team: null, played: false }}); }
+    if (! this.state.round32winner47.played) { this.setState({ round32winner47: { team: null, played: false }}); }
+    if (! this.state.round32winner48.played) { this.setState({ round32winner48: { team: null, played: false }}); }
     if (! this.state.sweet16winner49.played) { this.setState({ sweet16winner49: { team: null, played: false }}); }
     if (! this.state.sweet16winner50.played) { this.setState({ sweet16winner50: { team: null, played: false }}); }
     if (! this.state.sweet16winner51.played) { this.setState({ sweet16winner51: { team: null, played: false }}); }
@@ -184,6 +200,22 @@ export default class App extends Component {
   resetThisAndFutureGames = (clearSelected, game, winnerId, previousWinner) => {
     const startingGameNumber = game.slice(-2); // TODO: fix this to work with single digits
     switch(startingGameNumber) {
+      case '33': this.updateIfMatch('round32winner33', winnerId, game, clearSelected, previousWinner);
+      case '34': this.updateIfMatch('round32winner34', winnerId, game, clearSelected, previousWinner);
+      case '35': this.updateIfMatch('round32winner35', winnerId, game, clearSelected, previousWinner);
+      case '36': this.updateIfMatch('round32winner36', winnerId, game, clearSelected, previousWinner);
+      case '37': this.updateIfMatch('round32winner37', winnerId, game, clearSelected, previousWinner);
+      case '38': this.updateIfMatch('round32winner38', winnerId, game, clearSelected, previousWinner);
+      case '39': this.updateIfMatch('round32winner39', winnerId, game, clearSelected, previousWinner);
+      case '40': this.updateIfMatch('round32winner40', winnerId, game, clearSelected, previousWinner);
+      case '41': this.updateIfMatch('round32winner41', winnerId, game, clearSelected, previousWinner);
+      case '42': this.updateIfMatch('round32winner42', winnerId, game, clearSelected, previousWinner);
+      case '43': this.updateIfMatch('round32winner43', winnerId, game, clearSelected, previousWinner);
+      case '44': this.updateIfMatch('round32winner44', winnerId, game, clearSelected, previousWinner);
+      case '45': this.updateIfMatch('round32winner45', winnerId, game, clearSelected, previousWinner);
+      case '46': this.updateIfMatch('round32winner46', winnerId, game, clearSelected, previousWinner);
+      case '47': this.updateIfMatch('round32winner47', winnerId, game, clearSelected, previousWinner);
+      case '48': this.updateIfMatch('round32winner48', winnerId, game, clearSelected, previousWinner);
       case '49': this.updateIfMatch('sweet16winner49', winnerId, game, clearSelected, previousWinner);
       case '50': this.updateIfMatch('sweet16winner50', winnerId, game, clearSelected, previousWinner);
       case '51': this.updateIfMatch('sweet16winner51', winnerId, game, clearSelected, previousWinner);

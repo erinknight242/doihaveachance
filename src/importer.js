@@ -217,6 +217,7 @@ function mapCbsTeamToReact(cbsItemId) {
         case 'daobv': return Data.AbelineChristian;
         case 'tenru': return Data.Akron;
         case 'tgnjs': return Data.Alabama;
+        case 'tgobx': return Data.AlabamaState;
         case 'tgmzv': return Data.Arizona;
         case 'tgmzw': return Data.ArizonaState;
         case 'tgnjt': return Data.Arkansas;
@@ -224,6 +225,7 @@ function mapCbsTeamToReact(cbsItemId) {
         case 'tembr': return Data.Baylor;
         case 'temjt': return Data.BoiseState;
         case 'timru': return Data.BYU;
+        case 'dcmby': return Data.CALSD;
         case 'tgnrx': return Data.Charleston;
         case 'tcmrz': return Data.Clemson;
         case 'teojx': return Data.ClevelandState;
@@ -242,10 +244,12 @@ function mapCbsTeamToReact(cbsItemId) {
         case 'tcmzr': return Data.FloridaState;
         case 'tgnzq': return Data.Furman;
         case 'tcnrs': return Data.Georgetown;
+        case 'tgnjw': return Data.Georgia;
         case 'tcmzs': return Data.GeorgiaTech;
         case 'timjv': return Data.Gonzaga;
         case 'daojs': return Data.GrandCanyon; // not last 5 characters
         case '????': return Data.Hartford;
+        case 'tcobz': return Data.HighPoint;
         case 'temzx': return Data.Houston;
         case 'tcojq': return Data.Illinois;
         case 'tcojr': return Data.Indiana;
@@ -259,6 +263,7 @@ function mapCbsTeamToReact(cbsItemId) {
         case 'tgnjx': return Data.Kentucky;
         case 'tenzq': return Data.KentState;
         case 'tcobu': return Data.Liberty;
+        case 'dcmzq': return Data.Lipscomb;
         case 'timbs': return Data.Louisiana;
         case 'temzy': return Data.Louisville;
         case 'temjy': return Data.LongBeachState;
@@ -273,6 +278,7 @@ function mapCbsTeamToReact(cbsItemId) {
         case 'tcoju': return Data.MichiganState;
         case 'tgnrq': return Data.MississippiState;
         case 'tembw': return Data.Missouri;
+        case 'tcnzv': return Data.Montana;
         case 'tcnzw': return Data.MontanaState;
         case 'tgmrz': return Data.MoreheadState;
         case 'tcmzv': return Data.NCState;
@@ -298,6 +304,7 @@ function mapCbsTeamToReact(cbsItemId) {
         case 'tcnrw': return Data.Providence;
         case 'tcojz': return Data.Purdue;
         case 'tcnrx': return Data.Rutgers;
+        case 'tcnrz': return Data.SaintJohns;
         case 'timrs': return Data.SaintMarys;
         case 'tenrt': return Data.SaintPeters;
         case 'timjs': return Data.Samford;
@@ -311,12 +318,14 @@ function mapCbsTeamToReact(cbsItemId) {
         case 'temjr': return Data.TAMU;
         case '???': return Data.TexasSouthern;
         case 'temjs': return Data.TexasTech;
+        case 'timju': return Data.Troy;
         case 'temzu': return Data.UAB;
         case 'tgnbr': return Data.UCLA;
         case 'tcnrr': return Data.UConn;
         case 'temrt': return Data.UCSB;
         case 'tcobv': return Data.UNCAsheville;
         case 'tgnzs': return Data.UNCGreensboro;
+        case 'temrz': return Data.UNCW;
         case 'tgnbs': return Data.USC;
         case 'temru': return Data.UtahState;
         case 'temzs': return Data.VCU;
@@ -329,6 +338,7 @@ function mapCbsTeamToReact(cbsItemId) {
         case 'tcnzs': return Data.WestVirginia;
         case 'tcobx': return Data.Winthrop;
         case 'tembq': return Data.Wisconsin;
+        case 'tgnzv': return Data.Wofford;
         case 'tcnbz': return Data.Xavier;
         case 'tenjt': return Data.Yale;
         default: return null;
