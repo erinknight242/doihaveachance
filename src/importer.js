@@ -414,3 +414,25 @@ function mapCbsGameToReact(cbsSlotId) {
         default: console.log('**Unknown value'); return null;
     }
 }
+
+export const mapToLogos = (teamId) => {
+    switch(teamId) {
+        case 0: return 'auburn';
+        case 6: return 'tamu';
+        case 10: return 'iowast';
+        case 14: return 'michst';
+        case 16: return 'florida';
+        case 22: return 'maryland';
+        case 26: return 'texastech';
+        case 29: return 'arkansas';
+        case 30: return 'stjohns';
+        case 32: return 'duke';
+        case 36: return 'oregon';
+        case 38: return 'arizona';
+        case 42: return 'wisconsin';
+        case 48: return 'houston';
+        case 56: return 'illinois';
+        case 62: return 'tennessee';
+        default: return 'unknown';
+    }
+}

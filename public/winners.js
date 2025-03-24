@@ -119,7 +119,7 @@ window.winners = {
     round32winner41: { team: Duke, played: true},
     round32winner42: { team: null, played: false},
     round32winner43: { team: BYU, played: true},
-    round32winner44: { team: Alabama, played: true},
+    round32winner44: { team: null, played: false},
     round32winner45: { team: Houston, played: true},
     round32winner46: { team: Purdue, played: true},
     round32winner47: { team: Kentucky, played: true},

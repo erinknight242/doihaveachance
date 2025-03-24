@@ -43,11 +43,11 @@ function BracketGame({team1, team2, pickWinner, winner, name, className, gameTim
       <div className="game-time">{getDateFormat(gameTime)}</div>
       <div className={`team ${teamColor(id1)}${winner.played ? ' completed' : ''}${bgColor(id1)}`} onClick={pickWinner.bind(this, id1, name)}>
         <span className="seed">{seed1}</span>
-        <span className="team-name">{name1}{percent1}</span>
+        <span className="team-name">{name1}</span><span className="percent">{percent1}</span>
       </div>
       <div className={`team ${teamColor(id2)}${winner.played ? ' completed' : ''}${bgColor(id2)}`} onClick={pickWinner.bind(this, id2, name)}>
         <span className="seed">{seed2}</span>
-        <span className="team-name">{name2}{percent2}</span>
+        <span className="team-name">{name2}</span><span className="percent">{percent2}</span>
       </div>
     </div>
   )

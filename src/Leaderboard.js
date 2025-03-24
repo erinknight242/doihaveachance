@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { brackets, calculateCbsScore } from './bracketdata.js';
+import { mapToLogos } from './importer.js';
 
 export default class Leaderboard extends Component {
     constructor(props) {
@@ -14,25 +15,42 @@ export default class Leaderboard extends Component {
         brackets.forEach((bracket) => {
             const name = bracket.name;
             const score = calculateCbsScore(this.props.data, bracket);
+            const winner = bracket.championshipwinner63;
             let added = false;
             if (orderedStandings.length === 0) {
-                orderedStandings.push({ name, score });
+                orderedStandings.push({ name, score, winner });
                 added = true;
             } else {
                 for (let i = 0; i < orderedStandings.length; i++) {
                     if (score >= orderedStandings[i].score) {
-                        orderedStandings.splice(i, 0, { name, score });
+                        orderedStandings.splice(i, 0, { name, score, winner });
                         added = true;
                         break;
                     }
                 }
             }
             if (!added) {
-                orderedStandings.push({ name, score });
+                orderedStandings.push({ name, score, winner });
             }
         });
 
         let tempData = {
+            round32winner33: null,
+            round32winner34: null,
+            round32winner35: null,
+            round32winner36: null,
+            round32winner37: null,
+            round32winner38: null,
+            round32winner39: null,
+            round32winner40: null,
+            round32winner41: null,
+            round32winner42: null,
+            round32winner43: null,
+            round32winner44: null,
+            round32winner45: null,
+            round32winner46: null,
+            round32winner47: null,
+            round32winner48: null,
             sweet16winner49: null,
             sweet16winner50: null,
             sweet16winner51: null,
@@ -85,6 +103,22 @@ export default class Leaderboard extends Component {
 
         const isValidWinner = (winnerId, gameName) => {
             switch(gameName) {
+                case 'round32winner33': return winnerId === this.props.data.round64winner1.team || winnerId === this.props.data.round64winner2.team;
+                case 'round32winner34': return winnerId === this.props.data.round64winner3.team || winnerId === this.props.data.round64winner4.team;
+                case 'round32winner35': return winnerId === this.props.data.round64winner5.team || winnerId === this.props.data.round64winner6.team;
+                case 'round32winner36': return winnerId === this.props.data.round64winner7.team || winnerId === this.props.data.round64winner8.team;
+                case 'round32winner37': return winnerId === this.props.data.round64winner9.team || winnerId === this.props.data.round64winner10.team;
+                case 'round32winner38': return winnerId === this.props.data.round64winner11.team || winnerId === this.props.data.round64winner12.team;
+                case 'round32winner39': return winnerId === this.props.data.round64winner13.team || winnerId === this.props.data.round64winner14.team;
+                case 'round32winner40': return winnerId === this.props.data.round64winner15.team || winnerId === this.props.data.round64winner16.team;
+                case 'round32winner41': return winnerId === this.props.data.round64winner17.team || winnerId === this.props.data.round64winner18.team;
+                case 'round32winner42': return winnerId === this.props.data.round64winner19.team || winnerId === this.props.data.round64winner20.team;
+                case 'round32winner43': return winnerId === this.props.data.round64winner21.team || winnerId === this.props.data.round64winner22.team;
+                case 'round32winner44': return winnerId === this.props.data.round64winner23.team || winnerId === this.props.data.round64winner24.team;
+                case 'round32winner45': return winnerId === this.props.data.round64winner25.team || winnerId === this.props.data.round64winner26.team;
+                case 'round32winner46': return winnerId === this.props.data.round64winner27.team || winnerId === this.props.data.round64winner28.team;
+                case 'round32winner47': return winnerId === this.props.data.round64winner29.team || winnerId === this.props.data.round64winner30.team;
+                case 'round32winner48': return winnerId === this.props.data.round64winner31.team || winnerId === this.props.data.round64winner32.team;
                 case 'sweet16winner49': return winnerId === this.props.data.round32winner33.team || winnerId === this.props.data.round32winner34.team;
                 case 'sweet16winner50': return winnerId === this.props.data.round32winner35.team || winnerId === this.props.data.round32winner36.team;
                 case 'sweet16winner51': return winnerId === this.props.data.round32winner37.team || winnerId === this.props.data.round32winner38.team;
@@ -106,7 +140,7 @@ export default class Leaderboard extends Component {
 
 
         const standings = orderedStandings.map((bracket, i) => {
-            return (<div key={i} className="standings-row"><span className="link" onClick={calcPossibilities.bind(this, bracket.name, tempData)}>{bracket.name}:</span> <span>{bracket.score}</span></div>);
+            return (<div key={i} className="standings-row"><span className="link" onClick={calcPossibilities.bind(this, bracket.name, tempData)}><img className="team-logo" alt="team-logo" src={`/files/Armanino2025/${mapToLogos(bracket.winner)}.svg`}/>{bracket.name}:</span> <span>{bracket.score}</span></div>);
         });
 
         const allGamesPicked = () => {
