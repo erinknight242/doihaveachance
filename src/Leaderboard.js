@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { brackets, calculateCbsScore } from './bracketdata.js';
+import { brackets, calculateCbsScore, calculateEspnScore } from './bracketdata.js';
 import { mapToLogos } from './importer.js';
 
 export default class Leaderboard extends Component {
@@ -14,7 +14,7 @@ export default class Leaderboard extends Component {
         const orderedStandings = [];
         brackets.forEach((bracket) => {
             const name = bracket.name;
-            const score = calculateCbsScore(this.props.data, bracket);
+            const score = calculateEspnScore(this.props.data, bracket);
             const winner = bracket.championshipwinner63;
             let added = false;
             if (orderedStandings.length === 0) {
@@ -140,7 +140,7 @@ export default class Leaderboard extends Component {
 
 
         const standings = orderedStandings.map((bracket, i) => {
-            return (<div key={i} className="standings-row"><span className="link" onClick={calcPossibilities.bind(this, bracket.name, tempData)}><img className="team-logo" alt="team-logo" src={`/files/Armanino2025/${mapToLogos(bracket.winner)}.svg`}/>{bracket.name}:</span> <span>{bracket.score}</span></div>);
+            return (<div key={i} className="standings-row"><span className="link" onClick={calcPossibilities.bind(this, bracket.name, tempData)}><img className="team-logo" alt="team-logo" src={`/${mapToLogos(bracket.winner)}.svg`}/>{bracket.name}:</span> <span>{bracket.score}</span></div>);
         });
 
         const allGamesPicked = () => {
