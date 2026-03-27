@@ -76,70 +76,70 @@ export default class App extends Component {
         final4winner62: window.winners.final4winner62,
         championshipwinner63: window.winners.championshipwinner63,
         teams: [
-            { id: 0, name: 'Auburn', seed: '1'},
-            { id: 1, name: 'Alabama St.', seed: '16'},
-            { id: 2, name: 'Louisville', seed: '8'},
-            { id: 3, name: 'Creighton', seed: '9'},
-            { id: 4, name: 'Michigan', seed: '5'},
-            { id: 5, name: 'UC San Diego', seed: '12'},
-            { id: 6, name: 'Texas A&M', seed: '4'},
-            { id: 7, name: 'Yale', seed: '13'},
-            { id: 8, name: 'Ole Miss', seed: '6'},
-            { id: 9, name: 'North Carolina', seed: '11'},
-            { id: 10, name: 'Iowa St.', seed: '3'},
-            { id: 11, name: 'Lipscomb', seed: '14'},
-            { id: 12, name: 'Marquette', seed: '7'},
-            { id: 13, name: 'New Mexico', seed: '10'},
-            { id: 14, name: 'Michigan St.', seed: '2'},
-            { id: 15, name: 'Bryant', seed: '15'},
+            { id: 0, name: 'Duke', seed: '1'},
+            { id: 1, name: 'Siena', seed: '16'},
+            { id: 2, name: 'Ohio State', seed: '8'},
+            { id: 3, name: 'TCU', seed: '9'},
+            { id: 4, name: 'St. John\'s', seed: '5'},
+            { id: 5, name: 'Northern Iowa', seed: '12'},
+            { id: 6, name: 'Kansas', seed: '4'},
+            { id: 7, name: 'Cal Baptist', seed: '13'},
+            { id: 8, name: 'Louisville', seed: '6'},
+            { id: 9, name: 'South Florida', seed: '11'},
+            { id: 10, name: 'Michigan State', seed: '3'},
+            { id: 11, name: 'North Dakota State', seed: '14'},
+            { id: 12, name: 'UCLA', seed: '7'},
+            { id: 13, name: 'UCF', seed: '10'},
+            { id: 14, name: 'UConn', seed: '2'},
+            { id: 15, name: 'Furman', seed: '15'},
             { id: 16, name: 'Florida', seed: '1'},
-            { id: 17, name: 'Norfolk St.', seed: '16'},
-            { id: 18, name: 'UConn', seed: '8'},
-            { id: 19, name: 'Oklahoma', seed: '9'},
-            { id: 20, name: 'Memphis', seed: '5'},
-            { id: 21, name: 'Colorado St.', seed: '12'},
-            { id: 22, name: 'Maryland', seed: '4'},
-            { id: 23, name: 'Grand Canyon', seed: '13'},
-            { id: 24, name: 'Missouri', seed: '6'},
-            { id: 25, name: 'Drake', seed: '11'},
-            { id: 26, name: 'Texas Tech', seed: '3'},
-            { id: 27, name: 'UNC Wilmington', seed: '14'},
-            { id: 28, name: 'Kansas', seed: '7'},
-            { id: 29, name: 'Arkansas', seed: '10'},
-            { id: 30, name: 'St. John\'s', seed: '2'},
-            { id: 31, name: 'Omaha', seed: '15'},
-            { id: 32, name: 'Duke', seed: '1'},
-            { id: 33, name: 'Mount St. Mary\'s', seed: '16'},
-            { id: 34, name: 'Mississippi St.', seed: '8'},
-            { id: 35, name: 'Baylor', seed: '9'},
-            { id: 36, name: 'Oregon', seed: '5'},
-            { id: 37, name: 'Liberty', seed: '12'},
-            { id: 38, name: 'Arizona', seed: '4'},
-            { id: 39, name: 'Akron', seed: '13'},
+            { id: 17, name: 'PVAMU', seed: '16'},
+            { id: 18, name: 'Clemson', seed: '8'},
+            { id: 19, name: 'Iowa', seed: '9'},
+            { id: 20, name: 'Vanderbilt', seed: '5'},
+            { id: 21, name: 'McNeese', seed: '12'},
+            { id: 22, name: 'Nebraska', seed: '4'},
+            { id: 23, name: 'Troy', seed: '13'},
+            { id: 24, name: 'North Carolina', seed: '6'},
+            { id: 25, name: 'VCU', seed: '11'},
+            { id: 26, name: 'Illinois', seed: '3'},
+            { id: 27, name: 'Penn', seed: '14'},
+            { id: 28, name: 'Saint Mary\'s', seed: '7'},
+            { id: 29, name: 'TAMU', seed: '10'},
+            { id: 30, name: 'Houston', seed: '2'},
+            { id: 31, name: 'Idaho', seed: '15'},
+            { id: 32, name: 'Arizona', seed: '1'},
+            { id: 33, name: 'LIU', seed: '16'},
+            { id: 34, name: 'Villanova', seed: '8'},
+            { id: 35, name: 'Utah State', seed: '9'},
+            { id: 36, name: 'Wisconsin', seed: '5'},
+            { id: 37, name: 'High Point', seed: '12'},
+            { id: 38, name: 'Arkansas', seed: '4'},
+            { id: 39, name: 'Hawai\'i', seed: '13'},
             { id: 40, name: 'BYU', seed: '6'},
-            { id: 41, name: 'VCU', seed: '11'},
-            { id: 42, name: 'Wisconsin', seed: '3'},
-            { id: 43, name: 'Montana', seed: '14'},
-            { id: 44, name: 'St. Mary\'s', seed: '7'},
-            { id: 45, name: 'Vanderbilt', seed: '10'},
-            { id: 46, name: 'Alabama', seed: '2'},
-            { id: 47, name: 'Robert Morris', seed: '15'},
-            { id: 48, name: 'Houston', seed: '1'},
-            { id: 49, name: 'SIU Edwardsville', seed: '16'},
-            { id: 50, name: 'Gonzaga', seed: '8'},
-            { id: 51, name: 'Georgia', seed: '9'},
-            { id: 52, name: 'Clemson', seed: '5'},
-            { id: 53, name: 'McNeese', seed: '12'},
-            { id: 54, name: 'Purdue', seed: '4'},
-            { id: 55, name: 'High Point', seed: '13'},
-            { id: 56, name: 'Illinois', seed: '6'},
-            { id: 57, name: 'Xavier', seed: '11'},
-            { id: 58, name: 'Kentucky', seed: '3'},
-            { id: 59, name: 'Troy', seed: '14'},
-            { id: 60, name: 'UCLA', seed: '7'},
-            { id: 61, name: 'Utah St.', seed: '10'},
-            { id: 62, name: 'Tennessee', seed: '2'},
-            { id: 63, name: 'Wofford', seed: '15'}
+            { id: 41, name: 'Texas', seed: '11'},
+            { id: 42, name: 'Gonzaga', seed: '3'},
+            { id: 43, name: 'Kennesaw St.', seed: '14'},
+            { id: 44, name: 'Miami (FL)', seed: '7'},
+            { id: 45, name: 'Missouri', seed: '10'},
+            { id: 46, name: 'Purdue', seed: '2'},
+            { id: 47, name: 'Queens', seed: '15'},
+            { id: 48, name: 'Michigan', seed: '1'},
+            { id: 49, name: 'Howard', seed: '16'},
+            { id: 50, name: 'Georgia', seed: '8'},
+            { id: 51, name: 'Saint Louis', seed: '9'},
+            { id: 52, name: 'Texas Tech', seed: '5'},
+            { id: 53, name: 'Akron', seed: '12'},
+            { id: 54, name: 'Alabama', seed: '4'},
+            { id: 55, name: 'Hofstra', seed: '13'},
+            { id: 56, name: 'Tennessee', seed: '6'},
+            { id: 57, name: 'Miami (OH)', seed: '11'},
+            { id: 58, name: 'Virginia', seed: '3'},
+            { id: 59, name: 'Wright St.', seed: '14'},
+            { id: 60, name: 'Kentucky', seed: '7'},
+            { id: 61, name: 'Santa Clara', seed: '10'},
+            { id: 62, name: 'Iowa State', seed: '2'},
+            { id: 63, name: 'Tennessee St.', seed: '15'}
         ]
     };
   }
@@ -305,33 +305,33 @@ export default class App extends Component {
           <BracketGame gameTime = "" className={className(round64winner32)} team1={teams[62]} team2={teams[63]} pickWinner={this.pickWinner} winner={round64winner32} name='round64winner32'/>
           
           <h3 className={currentRound > 2 && !showAll ? 'hidden' : ''}>Round of 32</h3>
-          <BracketGame gameTime = "3/22/25 23:10 UTC" className={className(round32winner33)} team1={teams[round64winner1.team]} team2={teams[round64winner2.team]} pickWinner = {this.pickWinner} winner={round32winner33} name='round32winner33'/>
-          <BracketGame gameTime = "3/22/25 21:30 UTC" className={className(round32winner34)} team1={teams[round64winner3.team]} team2={teams[round64winner4.team]} pickWinner = {this.pickWinner} winner={round32winner34} name='round32winner34'/>
-          <BracketGame gameTime = "3/23/25 23:45 UTC" className={className(round32winner35)} team1={teams[round64winner5.team]} team2={teams[round64winner6.team]} pickWinner = {this.pickWinner} winner={round32winner35} name='round32winner35'/>
-          <BracketGame gameTime = "3/24/25 00:40 UTC" className={className(round32winner36)} team1={teams[round64winner7.team]} team2={teams[round64winner8.team]} pickWinner = {this.pickWinner} winner={round32winner36} name='round32winner36'/>
-          <BracketGame gameTime = "3/23/25 16:10 UTC" className={className(round32winner37)} team1={teams[round64winner9.team]} team2={teams[round64winner10.team]} pickWinner = {this.pickWinner} winner={round32winner37} name='round32winner37'/>
-          <BracketGame gameTime = "3/23/25 23:10 UTC" className={className(round32winner38)} team1={teams[round64winner11.team]} team2={teams[round64winner12.team]} pickWinner = {this.pickWinner} winner={round32winner38} name='round32winner38'/>
-          <BracketGame gameTime = "3/22/25 22:10 UTC" className={className(round32winner39)} team1={teams[round64winner13.team]} team2={teams[round64winner14.team]} pickWinner = {this.pickWinner} winner={round32winner39} name='round32winner39'/>
-          <BracketGame gameTime = "3/22/25 18:40 UTC" className={className(round32winner40)} team1={teams[round64winner15.team]} team2={teams[round64winner16.team]} pickWinner = {this.pickWinner} winner={round32winner40} name='round32winner40'/>
-          <BracketGame gameTime = "3/23/25 19:04 UTC" className={className(round32winner41)} team1={teams[round64winner17.team]} team2={teams[round64winner18.team]} pickWinner = {this.pickWinner} winner={round32winner41} name='round32winner41'/>
-          <BracketGame gameTime = "3/24/25 01:40 UTC" className={className(round32winner42)} team1={teams[round64winner19.team]} team2={teams[round64winner20.team]} pickWinner = {this.pickWinner} winner={round32winner42} name='round32winner42'/>
-          <BracketGame gameTime = "3/23/25 00:27 UTC" className={className(round32winner43)} team1={teams[round64winner21.team]} team2={teams[round64winner22.team]} pickWinner = {this.pickWinner} winner={round32winner43} name='round32winner43'/>
-          <BracketGame gameTime = "3/23/25 22:10 UTC" className={className(round32winner44)} team1={teams[round64winner23.team]} team2={teams[round64winner24.team]} pickWinner = {this.pickWinner} winner={round32winner44} name='round32winner44'/>
-          <BracketGame gameTime = "3/23/25 00:44 UTC" className={className(round32winner45)} team1={teams[round64winner25.team]} team2={teams[round64winner26.team]} pickWinner = {this.pickWinner} winner={round32winner45} name='round32winner45'/>
-          <BracketGame gameTime = "3/22/25 16:10 UTC" className={className(round32winner46)} team1={teams[round64winner27.team]} team2={teams[round64winner28.team]} pickWinner = {this.pickWinner} winner={round32winner46} name='round32winner46'/>
-          <BracketGame gameTime = "3/23/25 21:15 UTC" className={className(round32winner47)} team1={teams[round64winner29.team]} team2={teams[round64winner30.team]} pickWinner = {this.pickWinner} winner={round32winner47} name='round32winner47'/>
-          <BracketGame gameTime = "3/23/25 01:53 UTC" className={className(round32winner48)} team1={teams[round64winner31.team]} team2={teams[round64winner32.team]} pickWinner = {this.pickWinner} winner={round32winner48} name='round32winner48'/>
+          <BracketGame gameTime = "" className={className(round32winner33)} team1={teams[round64winner1.team]} team2={teams[round64winner2.team]} pickWinner = {this.pickWinner} winner={round32winner33} name='round32winner33'/>
+          <BracketGame gameTime = "" className={className(round32winner34)} team1={teams[round64winner3.team]} team2={teams[round64winner4.team]} pickWinner = {this.pickWinner} winner={round32winner34} name='round32winner34'/>
+          <BracketGame gameTime = "" className={className(round32winner35)} team1={teams[round64winner5.team]} team2={teams[round64winner6.team]} pickWinner = {this.pickWinner} winner={round32winner35} name='round32winner35'/>
+          <BracketGame gameTime = "" className={className(round32winner36)} team1={teams[round64winner7.team]} team2={teams[round64winner8.team]} pickWinner = {this.pickWinner} winner={round32winner36} name='round32winner36'/>
+          <BracketGame gameTime = "" className={className(round32winner37)} team1={teams[round64winner9.team]} team2={teams[round64winner10.team]} pickWinner = {this.pickWinner} winner={round32winner37} name='round32winner37'/>
+          <BracketGame gameTime = "" className={className(round32winner38)} team1={teams[round64winner11.team]} team2={teams[round64winner12.team]} pickWinner = {this.pickWinner} winner={round32winner38} name='round32winner38'/>
+          <BracketGame gameTime = "" className={className(round32winner39)} team1={teams[round64winner13.team]} team2={teams[round64winner14.team]} pickWinner = {this.pickWinner} winner={round32winner39} name='round32winner39'/>
+          <BracketGame gameTime = "" className={className(round32winner40)} team1={teams[round64winner15.team]} team2={teams[round64winner16.team]} pickWinner = {this.pickWinner} winner={round32winner40} name='round32winner40'/>
+          <BracketGame gameTime = "" className={className(round32winner41)} team1={teams[round64winner17.team]} team2={teams[round64winner18.team]} pickWinner = {this.pickWinner} winner={round32winner41} name='round32winner41'/>
+          <BracketGame gameTime = "" className={className(round32winner42)} team1={teams[round64winner19.team]} team2={teams[round64winner20.team]} pickWinner = {this.pickWinner} winner={round32winner42} name='round32winner42'/>
+          <BracketGame gameTime = "" className={className(round32winner43)} team1={teams[round64winner21.team]} team2={teams[round64winner22.team]} pickWinner = {this.pickWinner} winner={round32winner43} name='round32winner43'/>
+          <BracketGame gameTime = "" className={className(round32winner44)} team1={teams[round64winner23.team]} team2={teams[round64winner24.team]} pickWinner = {this.pickWinner} winner={round32winner44} name='round32winner44'/>
+          <BracketGame gameTime = "" className={className(round32winner45)} team1={teams[round64winner25.team]} team2={teams[round64winner26.team]} pickWinner = {this.pickWinner} winner={round32winner45} name='round32winner45'/>
+          <BracketGame gameTime = "" className={className(round32winner46)} team1={teams[round64winner27.team]} team2={teams[round64winner28.team]} pickWinner = {this.pickWinner} winner={round32winner46} name='round32winner46'/>
+          <BracketGame gameTime = "" className={className(round32winner47)} team1={teams[round64winner29.team]} team2={teams[round64winner30.team]} pickWinner = {this.pickWinner} winner={round32winner47} name='round32winner47'/>
+          <BracketGame gameTime = "" className={className(round32winner48)} team1={teams[round64winner31.team]} team2={teams[round64winner32.team]} pickWinner = {this.pickWinner} winner={round32winner48} name='round32winner48'/>
         
           <h3 className={currentRound > 3 && !showAll ? 'hidden' : ''}>Sweet 16</h3>
-          <BracketGame gameTime = "3/27/25 23:09 UTC" className={className(sweet16winner54)} team1={teams[round32winner43.team]} team2={teams[round32winner44.team]} pickWinner = {this.pickWinner} winner={sweet16winner54} name='sweet16winner54'/>
-          <BracketGame gameTime = "3/27/25 23:39 UTC" className={className(sweet16winner51)} team1={teams[round32winner37.team]} team2={teams[round32winner38.team]} pickWinner = {this.pickWinner} winner={sweet16winner51} name='sweet16winner51'/>
-          <BracketGame gameTime = "3/28/25 01:39 UTC" className={className(sweet16winner53)} team1={teams[round32winner41.team]} team2={teams[round32winner42.team]} pickWinner = {this.pickWinner} winner={sweet16winner53} name='sweet16winner53'/>
-          <BracketGame gameTime = "3/28/25 02:09 UTC" className={className(sweet16winner52)} team1={teams[round32winner39.team]} team2={teams[round32winner40.team]} pickWinner = {this.pickWinner} winner={sweet16winner52} name='sweet16winner52'/>
-          <BracketGame gameTime = "3/28/25 23:09 UTC" className={className(sweet16winner50)} team1={teams[round32winner35.team]} team2={teams[round32winner36.team]} pickWinner = {this.pickWinner} winner={sweet16winner50} name='sweet16winner50'/>
-          <BracketGame gameTime = "3/28/25 23:39 UTC" className={className(sweet16winner56)} team1={teams[round32winner47.team]} team2={teams[round32winner48.team]} pickWinner = {this.pickWinner} winner={sweet16winner56} name='sweet16winner56'/>
-          <BracketGame gameTime = "3/29/25 01:39 UTC" className={className(sweet16winner49)} team1={teams[round32winner33.team]} team2={teams[round32winner34.team]} pickWinner = {this.pickWinner} winner={sweet16winner49} name='sweet16winner49'/>
-          <BracketGame gameTime = "3/29/25 02:09 UTC" className={className(sweet16winner55)} team1={teams[round32winner45.team]} team2={teams[round32winner46.team]} pickWinner = {this.pickWinner} winner={sweet16winner55} name='sweet16winner55'/>
-          
+          <BracketGame gameTime = "3/26/26 23:10 UTC" className={className(sweet16winner54)} team1={teams[round32winner43.team]} team2={teams[round32winner44.team]} pickWinner = {this.pickWinner} winner={sweet16winner54} name='sweet16winner54'/>
+          <BracketGame gameTime = "3/26/26 23:30 UTC" className={className(sweet16winner51)} team1={teams[round32winner37.team]} team2={teams[round32winner38.team]} pickWinner = {this.pickWinner} winner={sweet16winner51} name='sweet16winner51'/>
+          <BracketGame gameTime = "3/27/26 2:05 UTC" className={className(sweet16winner52)} team1={teams[round32winner39.team]} team2={teams[round32winner40.team]} pickWinner = {this.pickWinner} winner={sweet16winner52} name='sweet16winner52'/>
+          <BracketGame gameTime = "3/27/26 2:06 UTC" className={className(sweet16winner53)} team1={teams[round32winner41.team]} team2={teams[round32winner42.team]} pickWinner = {this.pickWinner} winner={sweet16winner53} name='sweet16winner53'/>
+          <BracketGame gameTime = "3/27/26 23:10 UTC" className={className(sweet16winner49)} team1={teams[round32winner33.team]} team2={teams[round32winner34.team]} pickWinner = {this.pickWinner} winner={sweet16winner49} name='sweet16winner49'/>
+          <BracketGame gameTime = "3/27/26 23:35 UTC" className={className(sweet16winner55)} team1={teams[round32winner45.team]} team2={teams[round32winner46.team]} pickWinner = {this.pickWinner} winner={sweet16winner55} name='sweet16winner55'/>
+          <BracketGame gameTime = "3/28/26 1:45 UTC" className={className(sweet16winner50)} team1={teams[round32winner35.team]} team2={teams[round32winner36.team]} pickWinner = {this.pickWinner} winner={sweet16winner50} name='sweet16winner50'/>
+          <BracketGame gameTime = "3/28/26 2:10 UTC" className={className(sweet16winner56)} team1={teams[round32winner47.team]} team2={teams[round32winner48.team]} pickWinner = {this.pickWinner} winner={sweet16winner56} name='sweet16winner56'/>
+                    
           <h3 className={currentRound > 4 && !showAll ? 'hidden' : ''}>Elite 8</h3>
           <BracketGame gameTime = "TBD" className={className(elite8winner57)} team1={teams[sweet16winner49.team]} team2={teams[sweet16winner50.team]} pickWinner = {this.pickWinner} winner={elite8winner57} name='elite8winner57'/>
           <BracketGame gameTime = "TBD" className={className(elite8winner58)} team1={teams[sweet16winner51.team]} team2={teams[sweet16winner52.team]} pickWinner = {this.pickWinner} winner={elite8winner58} name='elite8winner58'/>
