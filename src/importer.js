@@ -9407,23 +9407,25 @@ function mapCbsGameToReact(cbsSlotId) {
 
 export const mapToLogos = (teamId) => {
     switch(teamId) {
-        case 0: return 'auburn';
-        case 6: return 'tamu';
-        case 10: return 'iowast';
-        case 14: return 'michst';
+        case 0: return 'duke';
+        case 4: return 'stjohns';
+        case 6: return 'kansas';
+        case 10: return 'michst';
+        case 14: return 'uconn';
         case 16: return 'florida';
-        case 22: return 'maryland';
-        case 26: return 'texastech';
-        case 29: return 'arkansas';
-        case 30: return 'stjohns';
-        case 32: return 'duke';
-        case 36: return 'oregon';
-        case 38: return 'arizona';
-        case 42: return 'wisconsin';
-        case 48: return 'houston';
-        case 56: return 'illinois';
-        case 58: return 'kentucky';
-        case 62: return 'tennessee';
+        case 22: return 'nebraska';
+        case 26: return 'illinois';
+        case 29: return 'tamu';
+        case 30: return 'houston';
+        case 32: return 'arizona';
+        case 36: return 'wisconsin';
+        case 38: return 'arkansas';
+        case 42: return 'gonzaga';
+        case 48: return 'michigan';
+        case 46: return 'purdue';
+        case 56: return 'tennessee';
+        case 58: return 'virginia';
+        case 62: return 'iowast';
         default: return 'unknown';
     }
 }

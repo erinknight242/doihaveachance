@@ -335,8 +335,8 @@ export default class App extends Component {
           <h3 className={currentRound > 4 && !showAll ? 'hidden' : ''}>Elite 8</h3>
           <BracketGame gameTime = "TBD" className={className(elite8winner57)} team1={teams[sweet16winner49.team]} team2={teams[sweet16winner50.team]} pickWinner = {this.pickWinner} winner={elite8winner57} name='elite8winner57'/>
           <BracketGame gameTime = "TBD" className={className(elite8winner58)} team1={teams[sweet16winner51.team]} team2={teams[sweet16winner52.team]} pickWinner = {this.pickWinner} winner={elite8winner58} name='elite8winner58'/>
-          <BracketGame gameTime = "TBD" className={className(elite8winner60)} team1={teams[sweet16winner55.team]} team2={teams[sweet16winner56.team]} pickWinner = {this.pickWinner} winner={elite8winner60} name='elite8winner60'/>
           <BracketGame gameTime = "TBD" className={className(elite8winner59)} team1={teams[sweet16winner53.team]} team2={teams[sweet16winner54.team]} pickWinner = {this.pickWinner} winner={elite8winner59} name='elite8winner59'/>
+          <BracketGame gameTime = "TBD" className={className(elite8winner60)} team1={teams[sweet16winner55.team]} team2={teams[sweet16winner56.team]} pickWinner = {this.pickWinner} winner={elite8winner60} name='elite8winner60'/>
           
           <h3 className={currentRound > 5 && !showAll ? 'hidden' : ''}>Final 4</h3>
           <BracketGame className={className(final4winner61)} team1={teams[elite8winner57.team]} team2={teams[elite8winner58.team]} pickWinner = {this.pickWinner} winner={final4winner61} name='final4winner61'/>

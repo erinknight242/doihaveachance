@@ -14,7 +14,7 @@ export default class Leaderboard extends Component {
         const orderedStandings = [];
         brackets.forEach((bracket) => {
             const name = bracket.name;
-            const score = calculateEspnScore(this.props.data, bracket);
+            const score = calculateCbsScore(this.props.data, bracket);
             const winner = bracket.championshipwinner63;
             let added = false;
             if (orderedStandings.length === 0) {
@@ -140,7 +140,7 @@ export default class Leaderboard extends Component {
 
 
         const standings = orderedStandings.map((bracket, i) => {
-            return (<div key={i} className="standings-row"><span className="link" onClick={calcPossibilities.bind(this, bracket.name, tempData)}><img className="team-logo" alt="team-logo" src={`/files/Bracket2025/${mapToLogos(bracket.winner)}.svg`}/>{bracket.name}:</span> <span>{bracket.score}</span></div>);
+            return (<div key={i} className="standings-row"><span className="link" onClick={calcPossibilities.bind(this, bracket.name, tempData)}><img className="team-logo" alt="team-logo" src={`http://files.eknightmusic.com/Bracket2026/${mapToLogos(bracket.winner)}.svg`}/>{bracket.name}:</span> <span>{bracket.score}</span></div>);
         });
 
         const allGamesPicked = () => {
