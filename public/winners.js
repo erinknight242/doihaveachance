@@ -75,7 +75,7 @@ const IowaState = 62;
 const TennesseeState = 63;
 
 window.winners = {
-    currentRound: 2,
+    currentRound: 4,
     round64winner1: { team: Duke, played: true},
     round64winner2: { team: TCU, played: true},
     round64winner3: { team: SaintJohns, played: true},
@@ -131,7 +131,7 @@ window.winners = {
     sweet16winner53: { team: Arizona, played: true},
     sweet16winner54: { team: Purdue, played: true},
     sweet16winner55: { team: Michigan, played: true},
-    sweet16winner56: { team: null, played: false},
+    sweet16winner56: { team: Tennessee, played: true},
     elite8winner57: { team: null, played: false },
     elite8winner58: { team: null, played: false },
     elite8winner59: { team: null, played: false },

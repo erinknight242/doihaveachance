@@ -9143,7 +9143,7 @@ function mapEspnToReact(espnId) {
         case '44': return Data.Colgate;
         case '45': return Data.Florida;
         case '46': return Data.VirginiaTech;
-        case '47': return Data.OhioSt;
+        case '47': return Data.OhioState;
         case '48': return Data.OralRoberts;
         case '49': return Data.Illinois;
         case '50': return Data.Drexel;
@@ -9177,25 +9177,23 @@ Run the tests one more time after pasting everything in to verify that it is for
 
 const cbsExample = {
     data: {
-        entry: {
-            name: "TestBracket",
-            picks:[
-                { slotId:"jvqxiy3iovydumryga======", itemId:"krswc3j2giytemby" },
-                { slotId:"jvqxiy3iovydumryge======", itemId:"krswc3j2giytemrt" },
-                { slotId:"jvqxiy3iovydumrygi======", itemId:"krswc3j2giytcmzw" },
-                { slotId:"jvqxiy3iovydumzqgq======", itemId:"krswc3j2giytgmbq" }
-            ]
-        }
+        name: "TestBracket",
+        picks:[
+            { slotId:"jvqxiy3iovydumryga======", itemId:"krswc3j2giytemby" },
+            { slotId:"jvqxiy3iovydumryge======", itemId:"krswc3j2giytemrt" },
+            { slotId:"jvqxiy3iovydumrygi======", itemId:"krswc3j2giytcmzw" },
+            { slotId:"jvqxiy3iovydumzqgq======", itemId:"krswc3j2giytgmbq" }
+        ]
     }
 };
 
 export const convertCbsBracket = (bracketJson = cbsExample) => {
     const jsonObject = bracketJson;
     let bracketObject = {};
-    bracketObject.name = jsonObject.data.entry.name;
-    for (let i = 0; i < jsonObject.data.entry.picks.length; i++) {
-        const winner = mapCbsTeamToReact(jsonObject.data.entry.picks[i].itemId);
-        const game = mapCbsGameToReact(jsonObject.data.entry.picks[i].slotId);
+    bracketObject.name = jsonObject.data.commonEntry.name;
+    for (let i = 0; i < jsonObject.data.commonEntry.picks.length; i++) {
+        const winner = mapCbsTeamToReact(jsonObject.data.commonEntry.picks[i].itemId);
+        const game = mapCbsGameToReact(jsonObject.data.commonEntry.picks[i].slotId);
         bracketObject[game] = winner;
     }
     return bracketObject;
@@ -9216,6 +9214,7 @@ function mapCbsTeamToReact(cbsItemId) {
         case 'temjt': return Data.BoiseState;
         case 'timru': return Data.BYU;
         case 'dcmby': return Data.CALSD;
+        case 'dknbq': return Data.CALBaptist;
         case 'tgnrx': return Data.Charleston;
         case 'tcmrz': return Data.Clemson;
         case 'teojx': return Data.ClevelandState;
@@ -9239,7 +9238,9 @@ function mapCbsTeamToReact(cbsItemId) {
         case 'timjv': return Data.Gonzaga;
         case 'daojs': return Data.GrandCanyon; // not last 5 characters
         case '????': return Data.Hartford;
+        case 'timrx': return Data.Hawaii;
         case 'tcobz': return Data.HighPoint;
+        case 'tcnju': return Data.Hofstra;
         case 'temzx': return Data.Houston;
         case 'tcojq': return Data.Illinois;
         case 'tcojr': return Data.Indiana;
@@ -9249,8 +9250,8 @@ function mapCbsTeamToReact(cbsItemId) {
         case 'temry': return Data.JamesMadison;
         case 'tembu': return Data.Kansas;
         case 'tembv': return Data.KansasState;
-        case 'ojtg4': return Data.KennesawState;
         case 'tgnjx': return Data.Kentucky;
+        case 'daojt': return Data.KennesawState;
         case 'tenzq': return Data.KentState;
         case 'tcobu': return Data.Liberty;
         case 'dcmzq': return Data.Lipscomb;
@@ -9264,6 +9265,7 @@ function mapCbsTeamToReact(cbsItemId) {
         case 'tgnzx': return Data.McNeese;
         case 'tenbq': return Data.Memphis;
         case 'tcnrt': return Data.Miami;
+        case 'tenzr': return Data.MiamiOH;
         case 'tcojt': return Data.Michigan;
         case 'tcoju': return Data.MichiganState;
         case 'tgnrq': return Data.MississippiState;
@@ -9278,10 +9280,11 @@ function mapCbsTeamToReact(cbsItemId) {
         case '?': return Data.NorfolkState;
         case 'tcmzu': return Data.NorthCarolina;
         case 'temrr': return Data.NorthTexas;
+        case 'tgmjq': return Data.NorthernIowa;
         case 'tcojw': return Data.Northwestern;
         case 'tinrv': return Data.Oakland;
         case 'tenzu': return Data.Ohio;
-        case 'tcojx': return Data.OhioSt;
+        case 'tcojx': return Data.OhioState;
         case 'temby': return Data.Oklahoma;
         case 'tembz': return Data.OklahomaState;
         case 'tgnjz': return Data.OleMiss;
@@ -9298,18 +9301,23 @@ function mapCbsTeamToReact(cbsItemId) {
         case 'timrs': return Data.SaintMarys;
         case 'tenrt': return Data.SaintPeters;
         case 'timjs': return Data.Samford;
+        case 'tenbu': return Data.SaintLouis;
         case 'timzr': return Data.SanDiegoState;
+        case 'timrr': return Data.SantaClara;
         case 'tgnrr': return Data.SouthCarolina;
+        case 'tenbt': return Data.SouthFlorida;
         case 'tcnbv': return Data.StBonaventure;
         case 'tcnzq': return Data.Syracuse;
         case 'timzu': return Data.TCU;
         case 'tgnrs': return Data.Tennessee;
+        case 'tgmzt': return Data.TennesseeState;
         case 'temjq': return Data.Texas;
         case 'temjr': return Data.TAMU;
         case '???': return Data.TexasSouthern;
         case 'temjs': return Data.TexasTech;
         case 'timju': return Data.Troy;
         case 'temzu': return Data.UAB;
+        case 'timbw': return Data.UCF;
         case 'tgnbr': return Data.UCLA;
         case 'tcnrr': return Data.UConn;
         case 'temrt': return Data.UCSantaBarbara;
@@ -9329,6 +9337,7 @@ function mapCbsTeamToReact(cbsItemId) {
         case 'tcobx': return Data.Winthrop;
         case 'tembq': return Data.Wisconsin;
         case 'tgnzv': return Data.Wofford;
+        case 'tgmbt': return Data.WrightState;
         case 'tcnbz': return Data.Xavier;
         case 'tenjt': return Data.Yale;
         default: return null;
@@ -9338,69 +9347,69 @@ function mapCbsTeamToReact(cbsItemId) {
 function mapCbsGameToReact(cbsSlotId) {
     const cbsId = cbsSlotId.slice(21,26); // This may need to change year to year
     switch (cbsId) {
-        case 'njsge': return 'round64winner1';
-        case 'njsgm': return 'round64winner2';
-        case 'njsgu': return 'round64winner3';
-        case 'njsg4': return 'round64winner4';
-        case 'njshe': return 'round64winner5';
-        case 'njtge': return 'round64winner6';
-        case 'njtgm': return 'round64winner7';
-        case 'njtgu': return 'round64winner8';
-        case 'njyga': return 'round64winner9';
-        case 'njygi': return 'round64winner10';
-        case 'njygq': return 'round64winner11';
-        case 'njygy': return 'round64winner12';
-        case 'njyha': return 'round64winner13';
-        case 'njzga': return 'round64winner14';
-        case 'njzgi': return 'round64winner15';
-        case 'njzgq': return 'round64winner16';
-        case 'njvga': return 'round64winner17';
-        case 'njvgi': return 'round64winner18';
-        case 'njvgq': return 'round64winner19';
-        case 'njvgy': return 'round64winner20';
-        case 'njvg4': return 'round64winner21';
-        case 'njvhe': return 'round64winner22';
-        case 'njwge': return 'round64winner23';
-        case 'njwgm': return 'round64winner24';
-        case 'nrrge': return 'round64winner25';
-        case 'nrrgm': return 'round64winner26';
-        case 'nrrgu': return 'round64winner27';
-        case 'nrrg4': return 'round64winner28';
-        case 'nrrhe': return 'round64winner29';
-        case 'nrsgi': return 'round64winner30';
-        case 'nrsgq': return 'round64winner31';
-        case 'nrsg4': return 'round64winner32';
-        case 'njtha': return 'round32winner33';
-        case 'njuga': return 'round32winner34';
-        case 'njugi': return 'round32winner35';
-        case 'njugq': return 'round32winner36';
-        case 'njzgy': return 'round32winner37';
-        case 'njzha': return 'round32winner38';
-        case 'nrqge': return 'round32winner39';
-        case 'nrqgm': return 'round32winner40';
-        case 'njwgu': return 'round32winner41';
-        case 'njwha': return 'round32winner42';
-        case 'njxga': return 'round32winner43';
-        case 'njxgi': return 'round32winner44';
-        case 'nrshe': return 'round32winner45';
-        case 'nrtge': return 'round32winner46';
-        case 'nrtgm': return 'round32winner47';
-        case 'nrtgu': return 'round32winner48';
-        case 'njugu': return 'sweet16winner49';
-        case 'njug4': return 'sweet16winner50';
-        case 'nrqgu': return 'sweet16winner51';
-        case 'nrqg4': return 'sweet16winner52';
-        case 'njxgq': return 'sweet16winner53';
-        case 'njxgy': return 'sweet16winner54';
-        case 'nrtgy': return 'sweet16winner55';
-        case 'nrtha': return 'sweet16winner56';
-        case 'njuha': return 'elite8winner57';
-        case 'nrqhe': return 'elite8winner58';
-        case 'njxha': return 'elite8winner59';
-        case 'nrthe': return 'elite8winner60';
-        case 'nruga': return 'final4winner61';
-        case 'nrugi': return 'final4winner62';
-        case 'nrugq': return 'championshipwinner63';
+        case 'mzqhe': return 'round64winner1';
+        case 'mzrge': return 'round64winner2';
+        case 'mzrgm': return 'round64winner3';
+        case 'mzrgu': return 'round64winner4';
+        case 'mzrg4': return 'round64winner5';
+        case 'mzrhe': return 'round64winner6';
+        case 'mzsge': return 'round64winner7';
+        case 'mzsgm': return 'round64winner8';
+        case 'mzwha': return 'round64winner9';
+        case 'mzxga': return 'round64winner10';
+        case 'mzxgi': return 'round64winner11';
+        case 'mzxgm': return 'round64winner12';
+        case 'mzxgu': return 'round64winner13';
+        case 'mzxgy': return 'round64winner14';
+        case 'mzxha': return 'round64winner15';
+        case 'mzyga': return 'round64winner16';
+        case 'mztha': return 'round64winner17';
+        case 'mzuga': return 'round64winner18';
+        case 'mzugi': return 'round64winner19';
+        case 'mzugq': return 'round64winner20';
+        case 'mzugy': return 'round64winner21';
+        case 'mzuha': return 'round64winner22';
+        case 'mzvge': return 'round64winner23';
+        case 'mzvgi': return 'round64winner24';
+        case 'mzzgu': return 'round64winner25';
+        case 'mzzg4': return 'round64winner26';
+        case 'mzzhe': return 'round64winner27';
+        case 'nbqge': return 'round64winner28';
+        case 'nbqgm': return 'round64winner29';
+        case 'nbqgu': return 'round64winner30';
+        case 'nbqg4': return 'round64winner31';
+        case 'nbqhe': return 'round64winner32';
+        case 'mzsgu': return 'round32winner33';
+        case 'mzsgy': return 'round32winner34';
+        case 'mzsha': return 'round32winner35';
+        case 'mztga': return 'round32winner36';
+        case 'mzygi': return 'round32winner37';
+        case 'mzygq': return 'round32winner38';
+        case 'mzygy': return 'round32winner39';
+        case 'mzyg4': return 'round32winner40';
+        case 'mzvgq': return 'round32winner41';
+        case 'mzvgy': return 'round32winner42';
+        case 'mzvha': return 'round32winner43';
+        case 'mzwga': return 'round32winner44';
+        case 'nbrge': return 'round32winner45';
+        case 'nbrgm': return 'round32winner46';
+        case 'nbrgu': return 'round32winner47';
+        case 'nbrg4': return 'round32winner48';
+        case 'mztgi': return 'sweet16winner49';
+        case 'mztgq': return 'sweet16winner50';
+        case 'mzyhe': return 'sweet16winner51';
+        case 'mzzge': return 'sweet16winner52';
+        case 'mzwgm': return 'sweet16winner53';
+        case 'mzwgu': return 'sweet16winner54';
+        case 'nbrhe': return 'sweet16winner55';
+        case 'nbsge': return 'sweet16winner56';
+        case 'mztgy': return 'elite8winner57';
+        case 'mzzgm': return 'elite8winner58';
+        case 'mzwg4': return 'elite8winner59';
+        case 'nbsgm': return 'elite8winner60';
+        case 'nbsgu': return 'final4winner61';
+        case 'nbsg4': return 'final4winner62';
+        case 'nbshe': return 'championshipwinner63';
         default: console.log('**Unknown value'); return null;
     }
 }
@@ -9411,6 +9420,7 @@ export const mapToLogos = (teamId) => {
         case 4: return 'stjohns';
         case 6: return 'kansas';
         case 10: return 'michst';
+        case 12: return 'ucla';
         case 14: return 'uconn';
         case 16: return 'florida';
         case 22: return 'nebraska';
@@ -9423,6 +9433,7 @@ export const mapToLogos = (teamId) => {
         case 42: return 'gonzaga';
         case 48: return 'michigan';
         case 46: return 'purdue';
+        case 52: return 'texastech';
         case 56: return 'tennessee';
         case 58: return 'virginia';
         case 62: return 'iowast';
